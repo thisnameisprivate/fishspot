@@ -3,6 +3,7 @@ import uView from 'uview-ui'
 import tabbars from '@/components/tabbars/tabbars.vue'; // 自定义底部导航条
 import navbar from '@/components/navbar/navbar.vue'; // 顶部胶囊
 
+
 // #ifndef VUE3
 import Vue from 'vue'
 Vue.use('tabbars', tabbars)

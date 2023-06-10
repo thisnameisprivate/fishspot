@@ -320,17 +320,14 @@ try {
     navbar: function () {
       return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/navbar/navbar.vue */ 165))
     },
-    uTransition: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-transition/u-transition */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-transition/u-transition")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-transition/u-transition.vue */ 330))
-    },
-    "u-Image": function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u--image/u--image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u--image/u--image")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u--image/u--image.vue */ 221))
+    uNotify: function () {
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-notify/u-notify */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-notify/u-notify")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-notify/u-notify.vue */ 269))
     },
     "u-Text": function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u--text/u--text */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u--text/u--text")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u--text/u--text.vue */ 277))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u--text/u--text */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u--text/u--text")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u--text/u--text.vue */ 287))
     },
     uAlbum: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-album/u-album */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-album/u-album")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-album/u-album.vue */ 283))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-album/u-album */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-album/u-album")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-album/u-album.vue */ 293))
     },
     uCellGroup: function () {
       return Promise.all(/*! import() | node-modules/uview-ui/components/u-cell-group/u-cell-group */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-cell-group/u-cell-group")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-cell-group/u-cell-group.vue */ 237))
@@ -342,7 +339,7 @@ try {
       return Promise.all(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 212))
     },
     uGap: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-gap/u-gap */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-gap/u-gap")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-gap/u-gap.vue */ 291))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-gap/u-gap */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-gap/u-gap")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-gap/u-gap.vue */ 301))
     },
     tabbars: function () {
       return __webpack_require__.e(/*! import() | components/tabbars/tabbars */ "components/tabbars/tabbars").then(__webpack_require__.bind(null, /*! @/components/tabbars/tabbars.vue */ 158))
@@ -408,10 +405,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-//
-//
-//
-//
 //
 //
 //
@@ -561,27 +554,47 @@ var _default = {
   },
   methods: {
     iconLikeButton: function iconLikeButton(key) {
-      console.log(key);
       // 通过判断当前的 color 颜色是否已经点赞
       if (this.urls[key].userDetail.color == '') {
-        this.likeShow = true;
-        var that = this;
-        setTimeout(function () {
-          console.log(that.likeShow);
-          that.likeShow = false;
-        }, 1000);
+        // 调用点赞提示
+        this.notifySuccess();
         // 为空则没有被点赞过，是默认样式, 则将icon，color改为点赞后的样式，likeCount后期需要读取后端展示真的点赞数
         this.urls[key].userDetail.color = '#398ade';
         this.urls[key].userDetail.icon = 'heart-fill';
         // 随机生成一个点赞的数量
         this.urls[key].userDetail.likeCount = Math.ceil(Math.random() * 100);
       } else {
+        this.notifyCancel();
         this.urls[key].userDetail.color = '';
         this.urls[key].userDetail.icon = 'heart';
         this.urls[key].userDetail.likeCount = '';
       }
-      // 动画执行结束改为不显示
-      console.log("click like button");
+    },
+    /**
+     * 点赞成功顶部notify消息提示
+     */
+    notifySuccess: function notifySuccess() {
+      this.$refs.uNotify.show({
+        top: 180,
+        type: 'success',
+        message: '已赞同',
+        duration: 1500,
+        fontSize: 20,
+        icon: 'heart-fill'
+      });
+    },
+    /**
+     * 点赞失败顶部notify消息提示
+     */
+    notifyCancel: function notifyCancel() {
+      this.$refs.uNotify.show({
+        top: 180,
+        type: 'warning',
+        message: '点赞已取消',
+        duration: 1500,
+        fontSize: 20,
+        icon: 'heart'
+      });
     }
   }
 };

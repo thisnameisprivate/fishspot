@@ -4,8 +4,7 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "navbar": "/components/navbar/navbar",
-    "u-transition": "/node-modules/uview-ui/components/u-transition/u-transition",
-    "u--image": "/node-modules/uview-ui/components/u--image/u--image",
+    "u-notify": "/node-modules/uview-ui/components/u-notify/u-notify",
     "u--text": "/node-modules/uview-ui/components/u--text/u--text",
     "u-album": "/node-modules/uview-ui/components/u-album/u-album",
     "u-cell-group": "/node-modules/uview-ui/components/u-cell-group/u-cell-group",

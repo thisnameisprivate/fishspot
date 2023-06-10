@@ -7,11 +7,7 @@
 		<!-- 图文组件 -->
 		<view class="container">
 		<!-- 点赞成功提示 -->
-		<u-transition :show="likeShow">
-		        <view class="transition">
-					<u--image src="/static/heart.png" width="80px" height="80px"></u--image>
-				</view>
-		    </u-transition>
+		<u-notify ref="uNotify"></u-notify>
 		<view v-for="(item, key, index) in urls" :key="index">
 			<view class="u-page">
 			<view class="u-demo-block">
@@ -130,27 +126,47 @@
 		},
 		methods: {
 			iconLikeButton: function (key) {
-				console.log(key)
 				// 通过判断当前的 color 颜色是否已经点赞
 				if (this.urls[key].userDetail.color == '') {
-					this.likeShow = true
-					let that = this
-					setTimeout(function () {
-						console.log(that.likeShow)
-						that.likeShow = false
-					}, 1000)
+					// 调用点赞提示
+					this.notifySuccess()
 					// 为空则没有被点赞过，是默认样式, 则将icon，color改为点赞后的样式，likeCount后期需要读取后端展示真的点赞数
 					this.urls[key].userDetail.color = '#398ade'
 					this.urls[key].userDetail.icon = 'heart-fill'
 					// 随机生成一个点赞的数量
 					this.urls[key].userDetail.likeCount = Math.ceil(Math.random() * 100)
 				} else {
+					this.notifyCancel()
 					this.urls[key].userDetail.color = ''
 					this.urls[key].userDetail.icon = 'heart'
 					this.urls[key].userDetail.likeCount = ''
 				}
-				// 动画执行结束改为不显示
-				console.log("click like button")
+			},
+			/**
+			 * 点赞成功顶部notify消息提示
+			 */
+			notifySuccess: function () {
+				this.$refs.uNotify.show({
+				    top: 180,
+				    type: 'success',
+				    message: '已赞同',
+				    duration: 1500,
+				    fontSize: 20,
+					icon: 'heart-fill'
+				})
+			},
+			/**
+			 * 点赞失败顶部notify消息提示
+			 */
+			notifyCancel: function () {
+				this.$refs.uNotify.show({
+					top: 180,
+					type: 'warning',
+					message: '点赞已取消',
+					duration: 1500,
+					fontSize: 20,
+					icon: 'heart'
+				})
 			}
 		},
 	}
