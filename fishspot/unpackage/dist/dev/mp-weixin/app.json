@@ -1,0 +1,34 @@
+{
+	"pages": [
+		"pages/index/index",
+		"pages/forum/index",
+		"pages/user/index",
+		"components/navbar/navbar"
+	],
+	"subPackages": [],
+	"window": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#909399",
+		"selectedColor": "#303133",
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "black",
+		"list": [
+			{
+				"pagePath": "pages/index/index"
+			},
+			{
+				"pagePath": "pages/forum/index"
+			},
+			{
+				"pagePath": "pages/user/index"
+			}
+		]
+	},
+	"usingComponents": {},
+	"sitemapLocation": "sitemap.json"
+}

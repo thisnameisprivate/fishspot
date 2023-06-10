@@ -1,0 +1,6 @@
+
+.u-page__item__slot-icon  {
+	height:40rpx;
+	width:40rpx;
+}
+

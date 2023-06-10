@@ -1,0 +1,15 @@
+{
+  "name": "fishspot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.10.18",
+    "uview-ui": "^2.0.31"
+  }
+}
