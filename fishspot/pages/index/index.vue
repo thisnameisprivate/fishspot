@@ -3,7 +3,7 @@
 		<!-- 导航条组件 -->
 		<navbar></navbar>
 		<!-- 为了禁止IOS下拉顶部留白， 所以禁止了json文件中的配置选项，但要满足满屏可下拉所以用到以下标签包裹整个页面  -->
-		<scroll-view scroll-y="true" class="content" :enhanced="true" :bounces="false" :show-scrollbar="false" @scrolltolower="touchBottomLoadMoreFish" :lower-threshold='20'>
+		<scroll-view scroll-y="true" class="contentScroll" :enhanced="true" :bounces="false" :show-scrollbar="false" @scrolltolower="touchBottomLoadMoreFish" :lower-threshold='20'>
 		<view class="back-top">
 			<view class="fishing-mileage">
 				<view class="fishing-mileage-text">
@@ -262,10 +262,11 @@
 </script>
 
 <style lang="scss" scoped>
-	.content {
+	.contentScroll {
 		// 可视高度， 需要在多大的盒子中进行滑动
 		height:79vh; // 这里本来是100vh的， 但是可能是由于uni-app的自定义底部导航条占了20vh，如果写100vh的话整个页面依旧无法上拉滚动；
 		width:100%;
+		background-color:#fff;
 	}
 	.u-tabs__wrapper__nav__line {
 		width:45rpx;

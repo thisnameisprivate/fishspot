@@ -324,10 +324,10 @@ try {
       return Promise.all(/*! import() | node-modules/uview-ui/components/u-notify/u-notify */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-notify/u-notify")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-notify/u-notify.vue */ 269))
     },
     "u-Text": function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u--text/u--text */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u--text/u--text")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u--text/u--text.vue */ 287))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u--text/u--text */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u--text/u--text")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u--text/u--text.vue */ 277))
     },
     uAlbum: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-album/u-album */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-album/u-album")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-album/u-album.vue */ 293))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-album/u-album */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-album/u-album")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-album/u-album.vue */ 283))
     },
     uCellGroup: function () {
       return Promise.all(/*! import() | node-modules/uview-ui/components/u-cell-group/u-cell-group */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-cell-group/u-cell-group")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-cell-group/u-cell-group.vue */ 237))
@@ -337,9 +337,6 @@ try {
     },
     uIcon: function () {
       return Promise.all(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 212))
-    },
-    uGap: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-gap/u-gap */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-gap/u-gap")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-gap/u-gap.vue */ 301))
     },
     tabbars: function () {
       return __webpack_require__.e(/*! import() | components/tabbars/tabbars */ "components/tabbars/tabbars").then(__webpack_require__.bind(null, /*! @/components/tabbars/tabbars.vue */ 158))
@@ -399,12 +396,40 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(wx) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -476,6 +501,7 @@ var _default = {
       albumWidth: 0,
       urls: {
         urls1: {
+          // 个人信息
           userDetail: {
             name: '迷失的维京人',
             text: '全面的组件和便捷的工具会让您信手拈来，如鱼得水挣脱束缚， 向往自由',
@@ -487,6 +513,7 @@ var _default = {
             likeCount: '' // 1118
           },
 
+          // 图片信息
           imageUrls: [{
             image: 'https://cdn.uviewui.com/uview/album/1.jpg'
           }, {
@@ -507,7 +534,27 @@ var _default = {
             image: 'https://cdn.uviewui.com/uview/album/9.jpg'
           }, {
             image: 'https://cdn.uviewui.com/uview/album/10.jpg'
-          }]
+          }],
+          // 评论列表
+          messagedatas: [{
+            username: '莫甘娜',
+            message: '凯尔，你被自己的光芒变的盲目-'
+          }, {
+            username: '凯尔',
+            message: '如果不是为了飞翔，我们要这翅膀有何用-'
+          }, {
+            username: '疾风剑豪',
+            message: '如果真相带来痛苦，那么谎言只会雪上加霜。'
+          }, {
+            username: '放逐之刃',
+            message: '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试？'
+          }],
+          // 评论操作输入框是否展示
+          messagebox: {
+            // 是否显示输入框
+            show: false,
+            focus: false
+          }
         },
         urls2: {
           userDetail: {
@@ -523,6 +570,10 @@ var _default = {
 
           imageUrls: [{
             image: 'https://cdn.uviewui.com/uview/album/1.jpg'
+          }],
+          messagedatas: [{
+            username: '疾风剑豪',
+            message: '世间万般刀刃，唯有过往伤人最深。'
           }]
         },
         urls3: {
@@ -547,12 +598,41 @@ var _default = {
             image: 'https://cdn.uviewui.com/uview/album/9.jpg'
           }, {
             image: 'https://cdn.uviewui.com/uview/album/10.jpg'
+          }],
+          messagedatas: []
+        },
+        urls4: {
+          userDetail: {
+            name: '京维众包网络科技',
+            text: '很久很久以后，我才知道，每天捡板栗的日程，他都要在山下的大水库边坐上很久。他在那里默默抽完一根又一根烟，直到这些烟打消了炽热的念头，他才起身离开水库，给我捡板栗。',
+            date: '2 天前',
+            icon: 'heart',
+            // heart-fill
+            color: '',
+            // #398ade
+            likeCount: '' // 1118
+          },
+
+          imageUrls: [
+            // {image: 'https://cdn.uviewui.com/uview/album/6.jpg'},
+            // {image: 'https://cdn.uviewui.com/uview/album/7.jpg'},
+            // {image: 'https://cdn.uviewui.com/uview/album/8.jpg'},
+            // {image: 'https://cdn.uviewui.com/uview/album/9.jpg'},
+            // {image: 'https://cdn.uviewui.com/uview/album/10.jpg'}
+          ],
+          messagedatas: [{
+            username: '凯尔',
+            message: '如果不是为了飞翔，我们要这翅膀有何用-'
           }]
         }
       }
     };
   },
   methods: {
+    /**
+     * @param {Object} key
+     * 点赞行为
+     */
     iconLikeButton: function iconLikeButton(key) {
       // 通过判断当前的 color 颜色是否已经点赞
       if (this.urls[key].userDetail.color == '') {
@@ -569,6 +649,21 @@ var _default = {
         this.urls[key].userDetail.icon = 'heart';
         this.urls[key].userDetail.likeCount = '';
       }
+    },
+    /**
+     * 评论操作
+     */
+    iconButtonMessage: function iconButtonMessage(key) {
+      var that = this;
+      this.urls[key].messagebox.show = true;
+      this.urls[key].messagebox.focus = true;
+      // 调取键盘是否收起监听事件
+      wx.onKeyboardHeightChange(function (res) {
+        if (res.height == 0) {
+          that.urls[key].message.show = false;
+          that.urls[key].message.focus = false;
+        }
+      });
     },
     /**
      * 点赞成功顶部notify消息提示
@@ -599,6 +694,7 @@ var _default = {
   }
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
 
 /***/ }),
 

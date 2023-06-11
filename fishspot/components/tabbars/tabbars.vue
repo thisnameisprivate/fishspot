@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view style="background-color:#fff;">
 		<u-tabbar
 			:value="initActive"
 			@change="tabsPageClick"
