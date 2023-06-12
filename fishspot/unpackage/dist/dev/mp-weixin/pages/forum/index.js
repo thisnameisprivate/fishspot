@@ -499,6 +499,8 @@ var _default = {
       // 点赞特效
       likeShow: false,
       albumWidth: 0,
+      // input框中的信息
+      messageBoxText: '',
       urls: {
         urls1: {
           // 个人信息
@@ -553,7 +555,8 @@ var _default = {
           messagebox: {
             // 是否显示输入框
             show: false,
-            focus: false
+            focus: false,
+            message: ''
           }
         },
         urls2: {
@@ -574,7 +577,14 @@ var _default = {
           messagedatas: [{
             username: '疾风剑豪',
             message: '世间万般刀刃，唯有过往伤人最深。'
-          }]
+          }],
+          // 评论操作输入框是否展示
+          messagebox: {
+            // 是否显示输入框
+            show: false,
+            focus: false,
+            message: ''
+          }
         },
         urls3: {
           userDetail: {
@@ -599,7 +609,14 @@ var _default = {
           }, {
             image: 'https://cdn.uviewui.com/uview/album/10.jpg'
           }],
-          messagedatas: []
+          messagedatas: [],
+          // 评论操作输入框是否展示
+          messagebox: {
+            // 是否显示输入框
+            show: false,
+            focus: false,
+            message: ''
+          }
         },
         urls4: {
           userDetail: {
@@ -623,7 +640,14 @@ var _default = {
           messagedatas: [{
             username: '凯尔',
             message: '如果不是为了飞翔，我们要这翅膀有何用-'
-          }]
+          }],
+          // 评论操作输入框是否展示
+          messagebox: {
+            // 是否显示输入框
+            show: false,
+            focus: false,
+            message: ''
+          }
         }
       }
     };
@@ -637,42 +661,68 @@ var _default = {
       // 通过判断当前的 color 颜色是否已经点赞
       if (this.urls[key].userDetail.color == '') {
         // 调用点赞提示
-        this.notifySuccess();
+        this.notifySuccess('点赞成功');
         // 为空则没有被点赞过，是默认样式, 则将icon，color改为点赞后的样式，likeCount后期需要读取后端展示真的点赞数
         this.urls[key].userDetail.color = '#398ade';
         this.urls[key].userDetail.icon = 'heart-fill';
         // 随机生成一个点赞的数量
         this.urls[key].userDetail.likeCount = Math.ceil(Math.random() * 100);
       } else {
-        this.notifyCancel();
+        this.notifyCancel('取消点赞');
         this.urls[key].userDetail.color = '';
         this.urls[key].userDetail.icon = 'heart';
         this.urls[key].userDetail.likeCount = '';
       }
     },
     /**
-     * 评论操作
+     * 评论键盘弹出操作
      */
     iconButtonMessage: function iconButtonMessage(key) {
       var that = this;
+      // 读取用户上次未发送的内容
+      this.messageBoxText = this.urls[key].messagebox.message;
       this.urls[key].messagebox.show = true;
       this.urls[key].messagebox.focus = true;
-      // 调取键盘是否收起监听事件
-      wx.onKeyboardHeightChange(function (res) {
-        if (res.height == 0) {
-          that.urls[key].message.show = false;
-          that.urls[key].message.focus = false;
-        }
+      // 设置为键盘弹出250之后再开始监听键盘高度, 防止第一次弹出键盘失败
+      setTimeout(function () {
+        // 调取键盘是否收起监听事件
+        wx.onKeyboardHeightChange(function (res) {
+          // 当键盘高度=0时
+          if (res.height == 0) {
+            that.urls[key].messagebox.show = false;
+            that.urls[key].messagebox.focus = false;
+            // 储存用户上次未发送的内容
+            that.urls[key].messagebox.message = that.messageBoxText;
+          }
+        });
+      }, 100);
+    },
+    /**
+     * 发送留言
+     */
+    buttonMessage: function buttonMessage(key) {
+      if (this.messageBoxText.length == 0) {
+        this.notifyCancel('评论不能为空');
+        return;
+      }
+      this.urls[key].messagedatas.push({
+        username: '微信用户',
+        message: this.messageBoxText
       });
+      // 用户发送完成弹出评论成功notify, 并清空当前的输入框内容(messageBoxText)，和对应的urls.messagebox.message
+      this.urls[key].messagebox.message = '';
+      this.messageBoxText = '';
+      // 弹出评论成功notify提示（演示，后期结合后端提示）
+      this.notifySuccess('评论成功');
     },
     /**
      * 点赞成功顶部notify消息提示
      */
-    notifySuccess: function notifySuccess() {
+    notifySuccess: function notifySuccess(message) {
       this.$refs.uNotify.show({
         top: 180,
         type: 'success',
-        message: '已赞同',
+        message: message,
         duration: 1500,
         fontSize: 20,
         icon: 'heart-fill'
@@ -681,11 +731,11 @@ var _default = {
     /**
      * 点赞失败顶部notify消息提示
      */
-    notifyCancel: function notifyCancel() {
+    notifyCancel: function notifyCancel(message) {
       this.$refs.uNotify.show({
         top: 180,
         type: 'warning',
-        message: '点赞已取消',
+        message: message,
         duration: 1500,
         fontSize: 20,
         icon: 'heart'
