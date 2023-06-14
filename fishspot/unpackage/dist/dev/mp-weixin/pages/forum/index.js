@@ -338,6 +338,9 @@ try {
     uIcon: function () {
       return Promise.all(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 212))
     },
+    uLoadingIcon: function () {
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-loading-icon/u-loading-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-loading-icon/u-loading-icon")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-loading-icon/u-loading-icon.vue */ 261))
+    },
     tabbars: function () {
       return __webpack_require__.e(/*! import() | components/tabbars/tabbars */ "components/tabbars/tabbars").then(__webpack_require__.bind(null, /*! @/components/tabbars/tabbars.vue */ 158))
     },
@@ -396,12 +399,19 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(wx) {
+/* WEBPACK VAR INJECTION */(function(uni) {
 
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+//
+//
+//
 //
 //
 //
@@ -498,6 +508,10 @@ var _default = {
       spance: "&nbsp;&nbsp;",
       // 点赞特效
       likeShow: false,
+      // 加载特效
+      loadStatus: false,
+      // 判断触底操作是否正在Loading中
+      touchBottomLoadMoreBoolean: false,
       albumWidth: 0,
       // input框中的信息
       messageBoxText: '',
@@ -686,12 +700,12 @@ var _default = {
       // 设置为键盘弹出250之后再开始监听键盘高度, 防止第一次弹出键盘失败
       setTimeout(function () {
         // 调取键盘是否收起监听事件
-        wx.onKeyboardHeightChange(function (res) {
+        uni.onKeyboardHeightChange(function (res) {
           // 当键盘高度=0时
           if (res.height == 0) {
             that.urls[key].messagebox.show = false;
             that.urls[key].messagebox.focus = false;
-            // 储存用户上次未发送的内容
+            // 储存用户输入但未发送的内容
             that.urls[key].messagebox.message = that.messageBoxText;
           }
         });
@@ -714,6 +728,64 @@ var _default = {
       this.messageBoxText = '';
       // 弹出评论成功notify提示（演示，后期结合后端提示）
       this.notifySuccess('评论成功');
+    },
+    /**
+     * 上拉手势更新更多用户动态数据
+     */
+    touchBottomLoadMoreFish: function touchBottomLoadMoreFish() {
+      // 添加touchBottomLoadMoreBollean 禁止小程序内部bug, 同一次动作触发多次加载操作（防抖功能）
+      if (this.touchBottomLoadMoreBoolean === false) {
+        var that = this;
+        /** 这个代码这里有问题， 设置touchBOttomLoadMoreBoolean为True时，
+        有时候会卡顿在加载状态---但如果去掉这个限制有时候会发送多次请求到后端，
+        暂时没想到什么好的办法，考虑后期Ajax获取数据状态使用该标识符来限制前端展示页面- 
+        **/
+        this.touchBottomLoadMoreBoolean = true;
+        this.loadStatus = true;
+        // 模拟请求时间
+        setTimeout(function () {
+          that.loadStatus = false;
+        }, 1000);
+        // 模拟上拉加载更多数据打入对应的 fishShopData
+        // 拼接最新的URLS内部key名称
+        var keyName = 'url' + (Object.keys(this.urls).length + 1);
+        var newObj = new Object();
+        newObj[keyName] = {
+          userDetail: {
+            name: '京维众包网络科技',
+            text: '很久很久以后，我才知道，每天捡板栗的日程，他都要在山下的大水库边坐上很久。他在那里默默抽完一根又一根烟，直到这些烟打消了炽热的念头，他才起身离开水库，给我捡板栗。',
+            date: '2 天前',
+            icon: 'heart',
+            // heart-fill
+            color: '',
+            // #398ade
+            likeCount: '' // 1118
+          },
+
+          imageUrls: [
+            // {image: 'https://cdn.uviewui.com/uview/album/6.jpg'},
+            // {image: 'https://cdn.uviewui.com/uview/album/7.jpg'},
+            // {image: 'https://cdn.uviewui.com/uview/album/8.jpg'},
+            // {image: 'https://cdn.uviewui.com/uview/album/9.jpg'},
+            // {image: 'https://cdn.uviewui.com/uview/album/10.jpg'}
+          ],
+          messagedatas: [{
+            username: '凯尔',
+            message: '如果不是为了飞翔，我们要这翅膀有何用-'
+          }],
+          // 评论操作输入框是否展示
+          messagebox: {
+            // 是否显示输入框
+            show: false,
+            focus: false,
+            message: ''
+          }
+        };
+        // 合并新获取的数据和老数据
+        this.urls = _objectSpread(_objectSpread({}, this.urls), newObj);
+        // 将下拉操作功能重置，提供给下次加载使用
+        this.touchBottomLoadMoreBoolean = false;
+      }
     },
     /**
      * 点赞成功顶部notify消息提示
@@ -744,7 +816,7 @@ var _default = {
   }
 };
 exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 

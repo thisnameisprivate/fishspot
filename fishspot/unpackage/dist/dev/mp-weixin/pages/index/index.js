@@ -565,7 +565,6 @@ exports.default = void 0;
 //
 //
 //
-//
 var _default = {
   data: function data() {
     return {
@@ -659,7 +658,7 @@ var _default = {
       // 判断触底操作是否正在Loading中
       touchBottomLoadMoreBoolean: false,
       // 加载状态
-      status: false
+      loadStatus: false
     };
   },
   onLoad: function onLoad() {},
@@ -677,16 +676,20 @@ var _default = {
     touchBottomLoadMoreFish: function touchBottomLoadMoreFish(res) {
       // 添加 touchBottomLoadMoreBoolean 禁止小程序内部bug, 同一次动作触发多次加载操作（防抖功能）
       if (this.touchBottomLoadMoreBoolean === false) {
+        var that = this;
         /** 这个代码这里有问题， 设置touchBOttomLoadMoreBoolean为True时，
         有时候会卡顿在加载状态---但如果去掉这个限制有时候会发送多次请求到后端，
         暂时没想到什么好的办法，考虑后期Ajax获取数据状态使用该标识符来限制前端展示页面- 
         **/
         this.touchBottomLoadMoreBoolean = true;
-        this.status = true;
-        // 模拟上拉加载更多数据打入对应的 fishShopData
+        this.loadStatus = true;
+        // 模拟上拉加载更多数据打入对应的 fishSpotData
         // 根据categoryCurrent的数值来判断当前的tabs下标
         if (this.categoryCurrent == 0) {
-          this.status = false;
+          // 模拟请求时间
+          setTimeout(function () {
+            that.loadStatus = false;
+          }, 1000);
           this.fishSpotData1.push({
             title: '野钓鱼点',
             value: '距离3km',
@@ -697,7 +700,10 @@ var _default = {
             label: '挣脱束缚， 向往自由'
           });
         } else if (this.categoryCurrent == 1) {
-          this.status = false;
+          // 模拟请求时间
+          setTimeout(function () {
+            that.loadStatus = false;
+          }, 1000);
           this.fishSpotData2.push({
             title: '黑坑鱼点',
             value: '距离3km',
@@ -708,7 +714,10 @@ var _default = {
             label: '挣脱束缚， 向往自由'
           });
         } else if (this.categoryCurrent == 2) {
-          this.status = false;
+          // 模拟请求时间
+          setTimeout(function () {
+            that.loadStatus = false;
+          }, 1000);
           this.fishSpotData3.push({
             title: '江边鱼点',
             value: '距离3km',
@@ -719,7 +728,6 @@ var _default = {
             label: '挣脱束缚， 向往自由'
           });
         }
-        console.log("touchBottomAction: RequestNewsData-");
       } else {
         this.touchBottomLoadMoreBoolean = false;
         return;

@@ -10,6 +10,7 @@
     "u-cell-group": "/node-modules/uview-ui/components/u-cell-group/u-cell-group",
     "u-cell": "/node-modules/uview-ui/components/u-cell/u-cell",
     "u-icon": "/node-modules/uview-ui/components/u-icon/u-icon",
+    "u-loading-icon": "/node-modules/uview-ui/components/u-loading-icon/u-loading-icon",
     "tabbars": "/components/tabbars/tabbars"
   }
 }
