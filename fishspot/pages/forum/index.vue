@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<!-- 导航条组件 -->
-		<navbar></navbar>
+		<navbar2></navbar2>
 		<!-- 为了禁止IOS下拉顶部留白， 所以禁止了json文件中的配置选项，但要满足满屏可下拉所以用到以下标签包裹整个页面  -->
 		<scroll-view scroll-y="true" class="contentScroll" :enhanced="true" :bounces="false" :show-scrollbar="false" @scrolltolower="touchBottomLoadMoreFish" :lower-threshold='20'>
 		<!-- 图文组件 -->
@@ -305,6 +305,7 @@
 					// 拼接最新的URLS内部key名称
 					var keyName = 'url' + (Object.keys(this.urls).length + 1)
 					var newObj = new Object()
+					// 要添加的新数据demo
 					newObj[keyName] = {
 								userDetail:{
 									name: '京维众包网络科技',

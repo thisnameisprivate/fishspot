@@ -2,6 +2,7 @@ import App from './App'
 import uView from 'uview-ui'
 import tabbars from '@/components/tabbars/tabbars.vue'; // 自定义底部导航条
 import navbar from '@/components/navbar/navbar.vue'; // 顶部胶囊
+import navbar2 from '@/components/navbar2/navbar2.vue' // 顶部胶囊样式2
 
 
 // #ifndef VUE3

@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/forum/index",
     "pages/user/index",
-    "components/navbar/navbar"
+    "components/navbar/navbar",
+    "pages/DamicPublishing/DamicPublishing"
   ],
   "subPackages": [],
   "window": {

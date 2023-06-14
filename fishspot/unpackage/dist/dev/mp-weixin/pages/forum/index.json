@@ -3,7 +3,7 @@
   "enablePullDownRefresh": false,
   "navigationStyle": "custom",
   "usingComponents": {
-    "navbar": "/components/navbar/navbar",
+    "navbar2": "/components/navbar2/navbar2",
     "u-notify": "/node-modules/uview-ui/components/u-notify/u-notify",
     "u--text": "/node-modules/uview-ui/components/u--text/u--text",
     "u-album": "/node-modules/uview-ui/components/u-album/u-album",

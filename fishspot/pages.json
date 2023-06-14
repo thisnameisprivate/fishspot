@@ -40,6 +40,15 @@
 		    }
 		    
 		}
+        ,{
+            "path" : "pages/DamicPublishing/DamicPublishing",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
