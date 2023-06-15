@@ -159,6 +159,7 @@
 </template>
 
 <script>
+	import {CommGetLocation} from '@/common/uNotify'
 	export default {
 		data() {
 			return {
@@ -207,7 +208,9 @@
 			}
 		},
 		onLoad() {
-
+			console.log("初次加载进入页面")
+			// 调用外部公共方法，申请获取用户当前位置权限
+			CommGetLocation()
 		},
 		methods: {
 			/**

@@ -1,30 +1,25 @@
-/**
-			 * 点赞成功顶部notify消息提示
-			 */
-			function notifySuccess () {
-				this.$refs.uNotify.show({
-				    top: 180,
-				    type: 'success',
-				    message: '已赞同',
-				    duration: 1500,
-				    fontSize: 20,
-					icon: 'heart-fill'
-				})
-			}
-			/**
-			 * 点赞失败顶部notify消息提示
-			 */
-			function notifyCancel () {
-				this.$refs.uNotify.show({
-					top: 180,
-					type: 'warning',
-					message: '点赞已取消',
-					duration: 1500,
-					fontSize: 20,
-					icon: 'heart'
-				})
-			}
-			export {
-				notifySuccess,
-				notifyCancel,
-			}
+// 获取用户当前位置
+function CommGetLocation () {
+	uni.getLocation({
+		type: 'wgs84',
+		success: res => {
+			// 将获取到的经度，维度打入到本地储存
+			uni.setStorage({
+				key: 'location',
+				data: {
+					latitude: res.latitude,
+					longitude: res.longitude
+				}
+			})
+			console.log(res)
+		},fail: res => {
+			// 用户拒绝了显示位置
+			console.log(res)
+			return
+		}
+	})
+}
+
+export {
+	CommGetLocation,
+}
