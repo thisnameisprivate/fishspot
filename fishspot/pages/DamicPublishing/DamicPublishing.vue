@@ -102,7 +102,7 @@
 					return;
 				}
 				var formData = {
-					'address': '',
+					'address': this.currentLocation.address, // 城市地址
 					'textAreaValue': this.textAreaValue,
 					'urls': this.base64ImgList
 				}
