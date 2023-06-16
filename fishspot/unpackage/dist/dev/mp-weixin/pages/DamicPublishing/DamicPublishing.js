@@ -238,21 +238,24 @@ var _default = {
           } else {
             that.imgList = res.tempFilePaths;
           }
+          that.imageBase64(res.tempFilePaths);
         }
       });
-      console.log(this.imgList);
     },
     // 图片预览
     ViewImage: function ViewImage(current) {
       var that = this;
       uni.previewImage({
-        urls: that.imgList,
+        urls: that.base64ImgList,
         current: current
       });
     },
     // 删除图片
     DelImg: function DelImg(key) {
       this.imgList.splice(key, 1);
+      this.base64ImgList.splice(key, 1);
+      console.log(this.imgList);
+      console.log(this.base64ImgList);
     },
     // 打开地图控件
     chooseLocation: function chooseLocation() {
@@ -274,37 +277,57 @@ var _default = {
     },
     // 表单提交校验
     buttomFormData: function buttomFormData() {
-      this.imageBase64();
       if (this.textAreaValue.length < 3 && this.imgList.length == 0) {
         console.log('发布内容不能为空');
         return;
       }
-      var fromData = {
+      var formData = {
         'address': '',
         'textAreaValue': this.textAreaValue,
-        'img': this.imgList
+        'urls': this.base64ImgList
       };
-      console.log(fromData);
+      console.log(formData);
+      console.log('base64长度为：' + this.base64ImgList.length);
     },
     // 将图片转换为base64
-    imageBase64: function imageBase64() {
+    imageBase64: function imageBase64(tempFilePaths) {
       var that = this;
-      for (var i = 0; i < this.imgList.length; i++) {
-        uni.request({
-          url: that.imgList[i],
-          method: 'GET',
-          responseType: 'arraybuffer',
-          success: function success(res) {
-            var base64 = uni.arrayBufferToBase64(res.data);
-            base64 = 'data:image/png;base64,' + base64;
-            that.base64ImgList = that.base64ImgList.concat(base64);
-          },
-          fail: function fail(err) {
-            console.log(err);
-          }
-        });
-      }
-      console.log('urls data: ' + that.base64ImgList);
+      new Promise(function (resolve, reject) {
+        console.log('tempFilePaths长度为:' + that.imgList.length);
+        for (var i = 0; i < tempFilePaths.length; i++) {
+          // uni.request({
+          // 	url: tempFilePaths[i],
+          // 	method: 'GET',
+          // 	responseType: 'arraybuffer',
+          // 	success: res => {
+          // 		console.log(res.data)
+          // 		resolve(res.data)
+          // 	},fail: err => {
+          // 		reject(err)
+          // 	}
+          // })
+          uni.getFileSystemManager().readFile({
+            filePath: tempFilePaths[i],
+            encoding: 'base64',
+            success: function success(res) {
+              var base64 = 'data:image/png;base64,' + res.data;
+              that.base64ImgList.push(base64);
+              resolve(res.data);
+            },
+            fail: function fail(err) {
+              reject(err);
+            }
+          });
+        }
+      }).then(function (data) {
+        // var base64 = wx.arrayBufferToBase64(data)
+        // base64 = 'data:image/png;base64,' + base64
+        // that.base64ImgList.push(base64)
+        console.log('转换成功，已打入数组base64ImgList');
+        console.log(that.base64ImgList);
+      }).catch(function (errlog) {
+        console.log("转为base64格式失败：" + errlog);
+      });
     }
   }
 };
