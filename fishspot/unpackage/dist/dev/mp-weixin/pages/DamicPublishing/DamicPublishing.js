@@ -100,6 +100,9 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    uNotify: function () {
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-notify/u-notify */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-notify/u-notify")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-notify/u-notify.vue */ 285))
+    },
     "u-Text": function () {
       return Promise.all(/*! import() | node-modules/uview-ui/components/u--text/u--text */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u--text/u--text")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u--text/u--text.vue */ 293))
     },
@@ -175,6 +178,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+//
+//
+//
+//
 //
 //
 //
@@ -289,6 +296,7 @@ var _default = {
       };
       console.log(formData);
       console.log('base64长度为：' + this.base64ImgList.length);
+      this.notifySuccess('提交成功');
     },
     // 将图片转换为base64
     imageBase64: function imageBase64(tempFilePaths) {
@@ -328,6 +336,32 @@ var _default = {
         console.log(that.base64ImgList);
       }).catch(function (errlog) {
         console.log("转为base64格式失败：" + errlog);
+      });
+    },
+    /**
+     * 提交成功顶部notify消息提示
+     */
+    notifySuccess: function notifySuccess(message) {
+      this.$refs.uNotify.show({
+        top: 180,
+        type: 'success',
+        message: message,
+        duration: 1500,
+        fontSize: 20,
+        icon: 'heart-fill'
+      });
+    },
+    /**
+     * 提交失败顶部notify消息提示
+     */
+    notifyCancel: function notifyCancel(message) {
+      this.$refs.uNotify.show({
+        top: 180,
+        type: 'warning',
+        message: message,
+        duration: 1500,
+        fontSize: 20,
+        icon: 'heart'
       });
     }
   }
