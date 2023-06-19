@@ -286,6 +286,7 @@ var _default = {
     buttomFormData: function buttomFormData() {
       if (this.textAreaValue.length < 3 && this.imgList.length == 0) {
         console.log('发布内容不能为空');
+        this.notifyCancel('提交失败');
         return;
       }
       var formData = {

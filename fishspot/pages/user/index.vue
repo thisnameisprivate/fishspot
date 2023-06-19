@@ -2,7 +2,39 @@
 	<view>
 		<!-- 导航条组件 -->
 		<navbar></navbar>
-		user.
+		<view class="back-top">
+			<view class="userDetail">
+				<view class="padding-sm padding-sm-userdetail">
+					<view class="bg-gradual-blue padding radius text-center shadow-blur shadow">
+					  <view class="user-detail-data">
+						  <view class="user-detail-left">
+							  <view class="padding">
+								  <view class="cu-avatar xl round " style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg);"></view>
+							  </view>
+							  <view class="">
+								  
+							  </view>
+						  </view>
+						  <view class="user-detail-center">
+							  <view class="user-detail-center-name solid-bottom text-lg padding text-shadow text-black">
+								  <text class="text-black">微信用户</text>
+							  </view>
+							  <view class="user-detail-center-account solid-bottom text-sm padding text-shadow text-black">
+								  <text class="text-gray">Give me Redemption.</text>
+							  </view>
+						  </view>
+						  <view class="user-detail-right">
+							  <button :class="sign.btnColor" @click="changeBtnSign">
+							  <text :class="sign.signIcon">
+							  </text>
+									签到
+							  </button>
+						  </view>
+					  </view>
+					</view>
+				</view>
+			</view>
+		</view>
 		<!-- 底部tabbar -->
 		<tabbars></tabbars>
 	</view>
@@ -12,15 +44,74 @@
 	export default {
 		data() {
 			return {
-				
+				// 签到按钮状态
+				sign: {
+					btnColor: 'bg-grey cu-btn round shadow sm',
+					signIcon: 'cuIcon-creative lg'
+				}
 			}
 		},
 		methods: {
-			
+			/**
+			 * 签到按钮颜色切换
+			 */
+			changeBtnSign: function () {
+				if (this.sign.btnColor == 'bg-green') {
+					return;
+				} else {
+					this.sign.btnColor = 'bg-green cu-btn round shadow sm'
+					this.sign.signIcon = 'cuIcon-creativefill lg'
+				}
+			}
 		}
 	}
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+	.back-top {
+		// background-color: $u-primary-light;
+		height:79vh;
+		margin-top:0;
+		background: -webkit-linear-gradient(top, rgb(236, 245, 255), rgb(43, 133, 228),  rgb(160, 207, 255),  rgb(160, 207, 255), rgb(236, 245, 255), rgb(236, 245, 255), rgb(255, 255, 255));
+		padding-top:120rpx;
+	}
+	// 顶部头像高度
+	.padding-sm-userdetail {
+		height: 300rpx;
+	}
+	.padding-sm-userdetail > view {
+		height:100%;
+	}
+	// 顶部个人信息框分区
+	.user-detail-data {
+		display:flex;
+		flex-direction:row;
+	}
+	.user-detail-left {
+		flex: 1.5;
+		display:flex;
+		justify-items: center;
+		align-items: center;
+	}
+	.user-detail-center {
+		flex: 3;
+		display:flex;
+		flex-direction: column;
+	}
+	.user-detail-center-name {
+		flex:1;
+		display:flex;
+		align-items:flex-end;
+	}
+	.user-detail-center-account {
+		flex:1;
+		display:flex;
+		align-items:flex-start;
+	}
+	.user-detail-right {
+		flex: 1;
+		display:flex;
+		justify-items:center;
+		align-items:center;
+	}
 </style>
