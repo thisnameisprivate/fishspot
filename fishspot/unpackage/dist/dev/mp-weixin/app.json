@@ -1,43 +1,42 @@
 {
-	"pages": [
-		"pages/index/index",
-		"pages/forum/index",
-		"pages/user/index",
-		"components/navbar/navbar",
-		"pages/DamicPublishing/DamicPublishing"
-	],
-	"subPackages": [],
-	"window": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	},
-	"tabBar": {
-		"color": "#909399",
-		"selectedColor": "#303133",
-		"backgroundColor": "#FFFFFF",
-		"borderStyle": "black",
-		"list": [
-			{
-				"pagePath": "pages/index/index"
-			},
-			{
-				"pagePath": "pages/forum/index"
-			},
-			{
-				"pagePath": "pages/user/index"
-			}
-		]
-	},
-	"permission": {
-		"scope.userLocation": {
-			"desc": "你的位置信息将用于小程序定位效果展示"
-		}
-	},
-	"requiredPrivateInfos": [
-		"chooseLocation"
-	],
-	"usingComponents": {},
-	"sitemapLocation": "sitemap.json"
+  "pages": [
+    "pages/index/index",
+    "pages/forum/index",
+    "pages/user/index",
+    "components/navbar/navbar",
+    "pages/DamicPublishing/DamicPublishing"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#909399",
+    "selectedColor": "#303133",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index"
+      },
+      {
+        "pagePath": "pages/forum/index"
+      },
+      {
+        "pagePath": "pages/user/index"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位效果展示"
+    }
+  },
+  "requiredPrivateInfos": [
+    "chooseLocation"
+  ],
+  "usingComponents": {}
 }

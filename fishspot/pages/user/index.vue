@@ -17,7 +17,7 @@
 						  </view>
 						  <view class="user-detail-center">
 							  <view class="user-detail-center-name solid-bottom text-lg padding text-shadow text-black">
-								  <text class="text-black">微信用户</text>
+								  <text class="text-white">微信用户</text>
 							  </view>
 							  <view class="user-detail-center-account solid-bottom text-sm padding text-shadow text-black">
 								  <text class="text-gray">Give me Redemption.</text>
@@ -34,6 +34,50 @@
 					</view>
 				</view>
 			</view>
+			<!-- 个人主页宫格布局  -->
+			<view class="cu-list grid col-3 no-border card-menu margin-top">
+			    <view class="cu-item" v-for="(item, index) in iconList" v-if="index<gridCol*2">
+					<view :class="'cuIcon-' + item.icon + ' text-' + item.color">
+						<view class="cu-tag badge" v-if="item.badge!=0">
+							<block v-if="item.badge!=1">{{item.badge>99?"99+":item.badge}}</block>
+						</view>
+					</view>
+			      <text>{{item.name}}</text>
+			    </view>
+			</view>
+			<!-- 卡片列表 -->
+			<view class="cu-list menu card-menu margin-top">
+				<view class="cu-item arrow">
+					<view class="content">
+						<text class="cuIcon-moreandroid text-grey"></text>
+						<text class="text-grey">我的动态</text>
+					</view>
+				</view>
+				<view class="cu-item arrow">
+					<view class="content">
+						<text class="cuIcon-addressbook text-grey"></text>
+						<text class="text-grey">个人信息</text>
+					</view>
+				</view>
+				<view class="cu-item arrow">
+					<view class="content">
+						<text class="cuIcon-friend text-grey"></text>
+						<text class="text-grey">关于我们</text>
+					</view>
+				</view>
+				<view class="cu-item arrow">
+					<view class="content">
+						<text class="cuIcon-creative text-grey"></text>
+						<text class="text-grey">我要举报/建议</text>
+					</view>
+				</view>
+				<view class="cu-item arrow">
+					<view class="content">
+						<text class="cuIcon-recharge text-grey"></text>
+						<text class="text-grey">赞助我们</text>
+					</view>
+				</view>
+			</view>
 		</view>
 		<!-- 底部tabbar -->
 		<tabbars></tabbars>
@@ -44,6 +88,25 @@
 	export default {
 		data() {
 			return {
+				// 宫格布局信息
+				iconList: [{
+				      icon: 'noticefill',
+				      color: 'olive',
+				      badge: 118,
+				      name: '通知'
+				    }, {
+				      icon: 'commentfill',
+				      color: 'cyan',
+				      badge: 1,
+				      name: '评论'
+				    }, {
+				      icon: 'footprint',
+				      color: 'blue',
+				      badge: 0,
+				      name: '足迹'
+				    }],
+				    gridCol:3,
+				    skin: false,
 				// 签到按钮状态
 				sign: {
 					btnColor: 'bg-grey cu-btn round shadow sm',
@@ -62,6 +125,13 @@
 					this.sign.btnColor = 'bg-green cu-btn round shadow sm'
 					this.sign.signIcon = 'cuIcon-creativefill lg'
 				}
+			},
+			/**
+			 * 宫格单位点击
+			 */
+			cellItemClick: function (itemName) {
+				console.log(itemName)
+				// this.$refs.uToast.success('点击了第${itemName}个')
 			}
 		}
 	}

@@ -1,8 +1,6 @@
 <template>
 	<view>
-		<view>
-			<u-notify ref="uNotify"></u-notify>
-		</view>
+		<u-toast ref="uToast" />
 		<!-- 发布成功提示 -->
 		<view class="cu-form-group margin-top">
 				<textarea maxlength="-1" :disabled="modalName!=null" :value="textAreaValue" bindinput="textareaAInput" placeholder="与钓友分享你的知识和见解..."></textarea>
@@ -103,7 +101,7 @@
 			buttomFormData: function () {
 				if (this.textAreaValue.length < 3 && this.imgList.length == 0) {
 					console.log('发布内容不能为空')
-					this.notifyCancel('提交失败')
+					this.$refs.uToast.warning('提交失败')
 					return;
 				}
 				var formData = {
@@ -113,7 +111,7 @@
 				}
 				console.log(formData)
 				console.log('base64长度为：' + this.base64ImgList.length)
-				this.notifySuccess('提交成功')
+				this.$refs.uToast.success('提交成功')
 			},
 			// 将图片转换为base64
 			imageBase64: function (tempFilePaths) {
@@ -152,32 +150,6 @@
 					console.log(that.base64ImgList)
 				}).catch(errlog => {
 					console.log("转为base64格式失败：" + errlog)
-				})
-			},
-			/**
-			 * 提交成功顶部notify消息提示
-			 */
-			notifySuccess: function (message) {
-				this.$refs.uNotify.show({
-				    top: 180,
-				    type: 'success',
-				    message: message,
-				    duration: 1500,
-				    fontSize: 20,
-					icon: 'heart-fill'
-				})
-			},
-			/**
-			 * 提交失败顶部notify消息提示
-			 */
-			notifyCancel: function (message) {
-				this.$refs.uNotify.show({
-					top: 180,
-					type: 'warning',
-					message: message,
-					duration: 1500,
-					fontSize: 20,
-					icon: 'heart'
 				})
 			}
 		}
