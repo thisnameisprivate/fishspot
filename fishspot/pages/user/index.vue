@@ -1,7 +1,7 @@
 <template>
 	<view>
-		<view style="position:absolute; width:100%; height:79vh; z-index: 1;">
-			<u-loading-page loading-text="加载中..." font-size="24" icon-size="58" image="/static/loading.gif" bg-color="#ffffff" :loading="loadingBoolean"></u-loading-page>
+		<view :class="loadingPage.loadingPageName">
+			<u-loading-page loading-text="加载中..." font-size="24" icon-size="58" image="/static/loading.gif" bg-color="#ffffff" :loading="loadingPage.loadingBoolean"></u-loading-page>
 		</view>
 		<!-- 导航条组件 -->
 		<navbar></navbar>
@@ -92,7 +92,10 @@
 		data() {
 			return {
 				// 整个页面加载是否完成
-				loadingBoolean: true,
+				loadingPage: {
+					loadingBoolean: true,
+					loadingPageName: ''
+				},
 				// 宫格布局信息
 				iconList: [{
 				      icon: 'noticefill',
@@ -140,7 +143,8 @@
 			}
 		},
 		onShow: function () {
-			this.loadingBoolean = false
+			this.loadingPage.loadingBoolean = false
+			this.loadingPage.loadingPageName = ''
 		}
 	}
 </script>
@@ -191,5 +195,12 @@
 		display:flex;
 		justify-items:center;
 		align-items:center;
+	}
+	// 页面加载中的样式
+	.loadingPageName{
+		position:absolute; 
+		width:100%; 
+		height:79vh; 
+		z-index: 1;
 	}
 </style>

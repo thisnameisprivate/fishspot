@@ -1,7 +1,7 @@
 <template>
 	<view>
-		<view style="position:absolute; width:100%; height:79vh; z-index: 1;">
-			<u-loading-page loading-text="加载中..." font-size="24" icon-size="58" image="/static/loading.gif" bg-color="#ffffff" :loading="loadingBoolean"></u-loading-page>
+		<view :class="loadingPage.loadingPageName">
+			<u-loading-page loading-text="加载中..." font-size="24" icon-size="58" image="/static/loading.gif" bg-color="#ffffff" :loading="loadingPage.loadingBoolean"></u-loading-page>
 		</view>
 		<!-- 导航条组件 -->
 		<navbar></navbar>
@@ -167,7 +167,10 @@
 		data() {
 			return {
 				// 整个页面是否加载完成
-				loadingBoolean: true,
+				loadingPage: {
+					loadingBoolean: true,
+					loadingPageName: ''
+				},
 				list:[
 					{ image: 'https://cdn.uviewui.com/uview/swiper/swiper1.png' , title: '昨夜星辰昨夜风，画楼西畔桂堂东'},
 					{ image: 'https://cdn.uviewui.com/uview/swiper/swiper2.png' , title: '身无彩凤双飞翼，心有灵犀一点通'},
@@ -218,7 +221,8 @@
 			CommGetLocation()
 		},
 		onShow: function () {
-			this.loadingBoolean = false
+			this.loadingPage.loadingBoolean = false,
+			this.loadingPage.loadingPageName = ''
 		},
 		methods: {
 			/**
@@ -412,5 +416,12 @@
 		width:100%;
 		margin:0 auto;
 		margin-top:15rpx;
+	}
+	// 页面加载中的样式
+	.loadingPageName{
+		position:absolute; 
+		width:100%; 
+		height:79vh; 
+		z-index: 1;
 	}
 </style>

@@ -1,7 +1,7 @@
 <template>
 	<view>
-		<view style="position:absolute; width:100%; height:79vh; z-index: 1;">
-			<u-loading-page loading-text="加载中..." font-size="24" icon-size="58" image="/static/loading.gif" bg-color="#ffffff" :loading="loadingBoolean"></u-loading-page>
+		<view :class="loadingPage.loadingPageName">
+			<u-loading-page loading-text="加载中..." font-size="24" icon-size="58" image="/static/loading.gif" bg-color="#ffffff" :loading="loadingPage.loadingBoolean"></u-loading-page>
 		</view>
 		<!-- 导航条组件 -->
 		<navbar2></navbar2>
@@ -99,6 +99,10 @@
 			return {
 				// 整个页面是否加载完成
 				loadingBoolean: false,
+				loadingPage: {
+					loadingBOolean: false,
+					loadingPageName: 'loadingPageName'
+				},
 				// 空格,uniapp中必须这样使用这种方式来展示小程序中的空格
 				spance:"&nbsp;&nbsp;",
 				// 点赞特效
@@ -374,7 +378,8 @@
 			}
 		},
 		onShow: function () {
-			this.loadingBoolean = false
+			this.loadingPage.loadingBOolean = false,
+			this.loadingPage.loadingPageName = ''
 		}
 	}
 </script>
@@ -424,5 +429,12 @@
 	.cellStyle {
 		width:90%;
 		margin:0 0 0 40px;
+	}
+	// 页面加载中的样式
+	.loadingPageName{
+		position:absolute; 
+		width:100%; 
+		height:79vh; 
+		z-index: 1;
 	}
 </style>

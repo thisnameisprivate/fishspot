@@ -318,7 +318,7 @@ var components
 try {
   components = {
     uLoadingPage: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-loading-page/u-loading-page */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-loading-page/u-loading-page")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-loading-page/u-loading-page.vue */ 426))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-loading-page/u-loading-page */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-loading-page/u-loading-page")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-loading-page/u-loading-page.vue */ 239))
     },
     navbar: function () {
       return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/navbar/navbar.vue */ 165))
@@ -480,7 +480,10 @@ var _default = {
   data: function data() {
     return {
       // 整个页面加载是否完成
-      loadingBoolean: true,
+      loadingPage: {
+        loadingBoolean: true,
+        loadingPageName: ''
+      },
       // 宫格布局信息
       iconList: [{
         icon: 'noticefill',
@@ -529,7 +532,8 @@ var _default = {
   },
 
   onShow: function onShow() {
-    this.loadingBoolean = false;
+    this.loadingPage.loadingBoolean = false;
+    this.loadingPage.loadingPageName = '';
   }
 };
 exports.default = _default;
