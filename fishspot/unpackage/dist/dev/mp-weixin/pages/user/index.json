@@ -3,6 +3,7 @@
   "enablePullDownRefresh": false,
   "navigationStyle": "custom",
   "usingComponents": {
+    "u-loading-page": "/node-modules/uview-ui/components/u-loading-page/u-loading-page",
     "navbar": "/components/navbar/navbar",
     "tabbars": "/components/tabbars/tabbars"
   }

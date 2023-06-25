@@ -23,7 +23,7 @@
 							src="/static/home.png"
 						></image>
 			</u-tabbar-item>
-			<u-tabbar-item text="晒场" @click="tabsPageClick" >
+			<u-tabbar-item text="晒场">
 				<image
 							class="u-page__item__slot-icon"
 							slot="active-icon"
@@ -35,7 +35,7 @@
 							src="/static/sun.png"
 						></image>
 			</u-tabbar-item>
-			<u-tabbar-item text="我的" @click="tabsPageClick" >
+			<u-tabbar-item text="我的">
 				<image
 							class="u-page__item__slot-icon"
 							slot="active-icon"

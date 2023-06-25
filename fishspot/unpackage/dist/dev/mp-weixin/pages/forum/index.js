@@ -100,6 +100,9 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    uLoadingPage: function () {
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-loading-page/u-loading-page */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-loading-page/u-loading-page")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-loading-page/u-loading-page.vue */ 426))
+    },
     navbar2: function () {
       return __webpack_require__.e(/*! import() | components/navbar2/navbar2 */ "components/navbar2/navbar2").then(__webpack_require__.bind(null, /*! @/components/navbar2/navbar2.vue */ 172))
     },
@@ -284,9 +287,14 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 //
 //
 //
+//
+//
+//
 var _default = {
   data: function data() {
     return {
+      // 整个页面是否加载完成
+      loadingBoolean: false,
       // 空格,uniapp中必须这样使用这种方式来展示小程序中的空格
       spance: "&nbsp;&nbsp;",
       // 点赞特效
@@ -597,6 +605,9 @@ var _default = {
         icon: 'heart'
       });
     }
+  },
+  onShow: function onShow() {
+    this.loadingBoolean = false;
   }
 };
 exports.default = _default;

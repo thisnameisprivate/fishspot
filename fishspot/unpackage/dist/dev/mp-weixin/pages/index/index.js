@@ -317,6 +317,9 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    uLoadingPage: function () {
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-loading-page/u-loading-page */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-loading-page/u-loading-page")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-loading-page/u-loading-page.vue */ 426))
+    },
     navbar: function () {
       return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/navbar/navbar.vue */ 165))
     },
@@ -566,9 +569,14 @@ var _uNotify = __webpack_require__(/*! @/common/uNotify */ 186);
 //
 //
 //
+//
+//
+//
 var _default = {
   data: function data() {
     return {
+      // 整个页面是否加载完成
+      loadingBoolean: true,
       list: [{
         image: 'https://cdn.uviewui.com/uview/swiper/swiper1.png',
         title: '昨夜星辰昨夜风，画楼西畔桂堂东'
@@ -666,6 +674,9 @@ var _default = {
     console.log("初次加载进入页面");
     // 调用外部公共方法，申请获取用户当前位置权限
     (0, _uNotify.CommGetLocation)();
+  },
+  onShow: function onShow() {
+    this.loadingBoolean = false;
   },
   methods: {
     /**

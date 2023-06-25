@@ -12,7 +12,7 @@
  * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
  */
 /* 颜色变量 */
-view.data-v-99a45d26, scroll-view.data-v-99a45d26, swiper-item.data-v-99a45d26 {
+view.data-v-647f6c67, scroll-view.data-v-647f6c67, swiper-item.data-v-647f6c67 {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -21,18 +21,30 @@ view.data-v-99a45d26, scroll-view.data-v-99a45d26, swiper-item.data-v-99a45d26 {
   align-items: stretch;
   align-content: flex-start;
 }
-.u-grid-item.data-v-99a45d26 {
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  flex-direction: column;
-  box-sizing: border-box;
+.u-swiper-indicator__wrapper.data-v-647f6c67 {
   display: flex;
-  position: relative;
-  float: left;
-  margin-top: 1rpx;
+  flex-direction: row;
 }
-.u-grid-item--hover-class.data-v-99a45d26 {
-  opacity: 0.5;
+.u-swiper-indicator__wrapper--line.data-v-647f6c67 {
+  border-radius: 100px;
+  height: 4px;
+}
+.u-swiper-indicator__wrapper--line__bar.data-v-647f6c67 {
+  width: 22px;
+  height: 4px;
+  border-radius: 100px;
+  background-color: #FFFFFF;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+.u-swiper-indicator__wrapper__dot.data-v-647f6c67 {
+  width: 5px;
+  height: 5px;
+  border-radius: 100px;
+  margin: 0 4px;
+}
+.u-swiper-indicator__wrapper__dot--active.data-v-647f6c67 {
+  width: 12px;
 }
 

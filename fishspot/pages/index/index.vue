@@ -1,5 +1,8 @@
 <template>
 	<view>
+		<view style="position:absolute; width:100%; height:79vh; z-index: 1;">
+			<u-loading-page loading-text="加载中..." font-size="24" icon-size="58" image="/static/loading.gif" bg-color="#ffffff" :loading="loadingBoolean"></u-loading-page>
+		</view>
 		<!-- 导航条组件 -->
 		<navbar></navbar>
 		<!-- 为了禁止IOS下拉顶部留白， 所以禁止了json文件中的配置选项，但要满足满屏可下拉所以用到以下标签包裹整个页面  -->
@@ -163,6 +166,8 @@
 	export default {
 		data() {
 			return {
+				// 整个页面是否加载完成
+				loadingBoolean: true,
 				list:[
 					{ image: 'https://cdn.uviewui.com/uview/swiper/swiper1.png' , title: '昨夜星辰昨夜风，画楼西畔桂堂东'},
 					{ image: 'https://cdn.uviewui.com/uview/swiper/swiper2.png' , title: '身无彩凤双飞翼，心有灵犀一点通'},
@@ -211,6 +216,9 @@
 			console.log("初次加载进入页面")
 			// 调用外部公共方法，申请获取用户当前位置权限
 			CommGetLocation()
+		},
+		onShow: function () {
+			this.loadingBoolean = false
 		},
 		methods: {
 			/**

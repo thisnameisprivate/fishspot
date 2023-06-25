@@ -12,7 +12,7 @@
  * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
  */
 /* 颜色变量 */
-view.data-v-50bc7b32, scroll-view.data-v-50bc7b32, swiper-item.data-v-50bc7b32 {
+view.data-v-eacdb3b2, scroll-view.data-v-eacdb3b2, swiper-item.data-v-eacdb3b2 {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -21,16 +21,31 @@ view.data-v-50bc7b32, scroll-view.data-v-50bc7b32, swiper-item.data-v-50bc7b32 {
   align-items: stretch;
   align-content: flex-start;
 }
-.u-grid.data-v-50bc7b32 {
-  width: 100%;
-  position: relative;
-  box-sizing: border-box;
-  overflow: hidden;
-  display: block;
-  justify-content: center;
+.u-loading-page.data-v-eacdb3b2 {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex: 1;
   align-items: center;
+  justify-content: center;
+}
+.u-loading-page__warpper.data-v-eacdb3b2 {
+  margin-top: -150px;
+  justify-content: center;
+  align-items: center;
+  color: #c8c8c8;
+  font-size: 19px;
+  display: flex;
+  flex-direction: column;
+}
+.u-loading-page__warpper__loading-icon.data-v-eacdb3b2 {
+  margin-bottom: 10px;
+}
+.u-loading-page__warpper__loading-icon__img.data-v-eacdb3b2 {
+  width: 40px;
+  height: 40px;
+}
+.u-loading-page__warpper__text.data-v-eacdb3b2 {
+  font-size: 19px;
+  color: #c8c8c8;
 }
 

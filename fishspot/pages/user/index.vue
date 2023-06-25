@@ -1,5 +1,8 @@
 <template>
 	<view>
+		<view style="position:absolute; width:100%; height:79vh; z-index: 1;">
+			<u-loading-page loading-text="加载中..." font-size="24" icon-size="58" image="/static/loading.gif" bg-color="#ffffff" :loading="loadingBoolean"></u-loading-page>
+		</view>
 		<!-- 导航条组件 -->
 		<navbar></navbar>
 		<view class="back-top">
@@ -49,31 +52,31 @@
 			<view class="cu-list menu card-menu margin-top">
 				<view class="cu-item arrow">
 					<view class="content">
-						<text class="cuIcon-moreandroid text-grey"></text>
+						<text class="cuIcon-moreandroid text-cyan"></text>
 						<text class="text-grey">我的动态</text>
 					</view>
 				</view>
 				<view class="cu-item arrow">
 					<view class="content">
-						<text class="cuIcon-addressbook text-grey"></text>
+						<text class="cuIcon-addressbook text-cyan"></text>
 						<text class="text-grey">个人信息</text>
 					</view>
 				</view>
 				<view class="cu-item arrow">
 					<view class="content">
-						<text class="cuIcon-friend text-grey"></text>
+						<text class="cuIcon-friend text-cyan"></text>
 						<text class="text-grey">关于我们</text>
 					</view>
 				</view>
 				<view class="cu-item arrow">
 					<view class="content">
-						<text class="cuIcon-creative text-grey"></text>
+						<text class="cuIcon-creative text-red"></text>
 						<text class="text-grey">我要举报/建议</text>
 					</view>
 				</view>
 				<view class="cu-item arrow">
 					<view class="content">
-						<text class="cuIcon-recharge text-grey"></text>
+						<text class="cuIcon-recharge text-green"></text>
 						<text class="text-grey">赞助我们</text>
 					</view>
 				</view>
@@ -88,6 +91,8 @@
 	export default {
 		data() {
 			return {
+				// 整个页面加载是否完成
+				loadingBoolean: true,
 				// 宫格布局信息
 				iconList: [{
 				      icon: 'noticefill',
@@ -133,6 +138,9 @@
 				console.log(itemName)
 				// this.$refs.uToast.success('点击了第${itemName}个')
 			}
+		},
+		onShow: function () {
+			this.loadingBoolean = false
 		}
 	}
 </script>

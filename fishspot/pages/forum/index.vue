@@ -1,5 +1,8 @@
 <template>
 	<view>
+		<view style="position:absolute; width:100%; height:79vh; z-index: 1;">
+			<u-loading-page loading-text="加载中..." font-size="24" icon-size="58" image="/static/loading.gif" bg-color="#ffffff" :loading="loadingBoolean"></u-loading-page>
+		</view>
 		<!-- 导航条组件 -->
 		<navbar2></navbar2>
 		<!-- 为了禁止IOS下拉顶部留白， 所以禁止了json文件中的配置选项，但要满足满屏可下拉所以用到以下标签包裹整个页面  -->
@@ -94,6 +97,8 @@
 	export default {
 		data() {
 			return {
+				// 整个页面是否加载完成
+				loadingBoolean: false,
 				// 空格,uniapp中必须这样使用这种方式来展示小程序中的空格
 				spance:"&nbsp;&nbsp;",
 				// 点赞特效
@@ -367,6 +372,9 @@
 					icon: 'heart'
 				})
 			}
+		},
+		onShow: function () {
+			this.loadingBoolean = false
 		}
 	}
 </script>
