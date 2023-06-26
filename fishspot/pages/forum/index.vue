@@ -89,7 +89,7 @@
 		</view>
 		</scroll-view>
 		<!-- 底部tabbar -->
-		<tabbars></tabbars>
+		<tabbars :current="1"></tabbars>
 	</view>
 </template>
 

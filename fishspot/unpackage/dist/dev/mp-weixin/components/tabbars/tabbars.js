@@ -80,10 +80,10 @@ var components
 try {
   components = {
     uTabbar: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabbar/u-tabbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabbar/u-tabbar")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabbar/u-tabbar.vue */ 214))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabbar/u-tabbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabbar/u-tabbar")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabbar/u-tabbar.vue */ 222))
     },
     uTabbarItem: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabbar-item/u-tabbar-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabbar-item/u-tabbar-item")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabbar-item/u-tabbar-item.vue */ 222))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabbar-item/u-tabbar-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabbar-item/u-tabbar-item")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabbar-item/u-tabbar-item.vue */ 230))
     },
   }
 } catch (e) {
@@ -201,37 +201,33 @@ exports.default = void 0;
 //
 var _default = {
   name: "tabbars",
+  props: {
+    current: Number
+  },
   data: function data() {
     return {
-      initActive: 0,
-      name: 0
+      listUrl: [{
+        path: "pages/home/home"
+      }, {
+        path: "pages/forum/index"
+      }, {
+        path: "pages/user/index"
+      }]
     };
   },
   methods: {
-    // 底部导航栏点击
-    tabsPageClick: function tabsPageClick(e) {
-      console.log('click', e);
-      if (e == 0) {
-        uni.switchTab({
-          url: "/pages/index/index"
-        });
-        this.name = 0;
-      } else if (e == 1) {
-        uni.switchTab({
-          url: "/pages/forum/index"
-        });
-        this.name = 1;
-      } else if (e == 2) {
-        uni.switchTab({
-          url: "/pages/user/index"
-        });
-        this.name = 2;
-      }
+    tabbarChange: function tabbarChange(e) {
+      uni.switchTab({
+        url: '/' + this.listUrl[e].path
+      });
     }
   },
   created: function created() {
     // 隐藏原生tabbar
     uni.hideTabBar();
+  },
+  onShow: function onShow() {
+    console.log("tabbar渲染了");
   }
 };
 exports.default = _default;

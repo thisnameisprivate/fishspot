@@ -1,17 +1,17 @@
 <template>
 	<view style="background-color:#fff;">
 		<u-tabbar
-			:value="initActive"
-			@change="tabsPageClick"
+			:value="current?current:0"
+			@change="tabbarChange"
 			:fixed="true"
 			:placeholder="true"
 			:safeAreaInsetBottom="true" 
-			activeColor="#293f66"
+			activeColor="green"
 			inactiveColor="#606266"
 			:border="false"
 		>
 		<!-- // 给尊贵的苹果XR用户留个能看到的按钮---如果不考虑可以将safeAreaInsetBottom改为 false---- -->
-			<u-tabbar-item text="首页" @click="tabsPageClick" >
+			<u-tabbar-item text="首页">
 				<image
 							class="u-page__item__slot-icon"
 							slot="active-icon"
@@ -54,45 +54,39 @@
 <script>
 	export default {
 		name:"tabbars",
+		props:{
+			current:Number,
+		},
 		data() {
 			return {
-				initActive:0,
-				name:0,
+				listUrl: [
+					{path: "pages/home/home"},
+					{path: "pages/forum/index"},
+					{path: "pages/user/index"}
+				]
 			};
 		},
 		methods:{
-			// 底部导航栏点击
-			tabsPageClick(e) {
-				console.log('click', e);
-				if (e == 0) {
-					uni.switchTab({
-						url:"/pages/index/index",
-					})
-					this.name = 0;
-				} else if (e == 1) {
-					uni.switchTab({
-						url:"/pages/forum/index",
-					})
-					this.name = 1;
-				} else if (e == 2) {
-					uni.switchTab({
-						url:"/pages/user/index",
-					})
-					this.name = 2;
-				}
-			},
+			tabbarChange: function (e) {
+				uni.switchTab({
+					url: '/' + this.listUrl[e].path
+				})
+			}
 			
 		},
 		created () {
 			// 隐藏原生tabbar
 			uni.hideTabBar()
+		},
+		onShow: function () {
+			console.log("tabbar渲染了")
 		}
 	}
 </script>
 
 <style>
 	.u-page__item__slot-icon  {
-		height:40rpx;
-		width:40rpx;
+		height:60rpx;
+		width:60rpx;
 	}
 </style>

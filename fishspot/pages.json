@@ -4,6 +4,17 @@
 		},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path" : "pages/home/home",
+			"style" :                                                                                    
+			{
+				"disableScroll" : true, // 禁止这个页面下拉留白-
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+			
+		},
+		{
 			"path": "pages/index/index",
 			"style": {
 				"disableScroll" : true, // 禁止这个页面下拉留白-
@@ -69,7 +80,7 @@
 		"backgroundColor": "#FFFFFF",
 		"borderStyle": "black",
 		"list": [{
-				"pagePath": "pages/index/index"
+				"pagePath": "pages/home/home"
 			},
 			{
 				"pagePath": "pages/forum/index"

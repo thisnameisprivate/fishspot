@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/index/index",
     "pages/forum/index",
     "pages/user/index",
@@ -20,7 +21,7 @@
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/index/index"
+        "pagePath": "pages/home/home"
       },
       {
         "pagePath": "pages/forum/index"

@@ -80,7 +80,7 @@ var components
 try {
   components = {
     uIcon: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 230))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 238))
     },
   }
 } catch (e) {
@@ -217,7 +217,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 205:
+/***/ 213:
 /*!***************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/main.js?{"page":"components%2Fnavbar%2Fnavbar"} ***!
   \***************************************************************************************/
@@ -238,5 +238,5 @@ createPage(_navbar.default);
 
 /***/ })
 
-},[[205,"common/runtime","common/vendor"]]]);
+},[[213,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/components/navbar/navbar.js.map

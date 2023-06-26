@@ -157,7 +157,7 @@
 			<u-swiper :list="list" keyName="image"></u-swiper>
 		</view> -->
 		<!-- 底部tabbar -->
-		<tabbars></tabbars>
+		<tabbars :current="0"></tabbars>
 	</view>
 </template>
 

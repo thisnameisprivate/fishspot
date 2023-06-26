@@ -83,7 +83,7 @@
 			</view>
 		</view>
 		<!-- 底部tabbar -->
-		<tabbars></tabbars>
+		<tabbars :current="2"></tabbars>
 	</view>
 </template>
 

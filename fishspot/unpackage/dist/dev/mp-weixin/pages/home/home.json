@@ -1,0 +1,13 @@
+{
+  "disableScroll": true,
+  "navigationBarTitleText": "首页",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-loading-page": "/node-modules/uview-ui/components/u-loading-page/u-loading-page",
+    "navbar": "/components/navbar/navbar",
+    "u--image": "/node-modules/uview-ui/components/u--image/u--image",
+    "u-loading-icon": "/node-modules/uview-ui/components/u-loading-icon/u-loading-icon",
+    "tabbars": "/components/tabbars/tabbars"
+  }
+}

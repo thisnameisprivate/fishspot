@@ -39,6 +39,17 @@
 						console.log(error)
 					  }
 					})
+					uni.loadFontFace({
+					  global: true, // 开启全局生效
+					   family: '阿里妈妈',
+					   source: 'url("/static/fonts/AlimamaFangYuanTiVF-Thin.ttf")',
+					   success() {
+					     console.log('success')
+					   },
+					   fail(e) {
+					     console.log('err：',e)
+					   }
+					 })
 				},
 	}
 </script>
@@ -48,4 +59,8 @@
 	@import "colorui/main.css";
 	@import "colorui/icon.css";
 	@import "uview-ui/index.scss";
+	/* 设置默认字体样式 */
+	body {
+		font-family:'阿里妈妈', sans-serif;
+	}
 </style>
