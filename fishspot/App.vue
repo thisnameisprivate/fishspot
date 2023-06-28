@@ -40,9 +40,9 @@
 					  }
 					})
 					uni.loadFontFace({
-					  global: true, // 开启全局生效
+					   global: true, // 开启全局生效
 					   family: '阿里妈妈',
-					   source: 'url("/static/fonts/AlimamaFangYuanTiVF-Thin.ttf")',
+					   source: 'url("https://wechatapi.schaoge.cn/static/fonts/AlimamaFangYuanTiVF-Thin.woff")',
 					   success() {
 					     console.log('success')
 					   },

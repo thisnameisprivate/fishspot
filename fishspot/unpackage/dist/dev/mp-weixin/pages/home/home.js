@@ -530,6 +530,24 @@ var _uNotify = __webpack_require__(/*! @/common/uNotify */ 186);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // 获取用户信息储存到localStorage
 var _default = {
   data: function data() {
@@ -554,67 +572,82 @@ var _default = {
       fishSpotData1: [{
         title: '鱼点',
         value: '距离3km',
-        label: '挣脱束缚， 向往自由'
+        label: '翘嘴，白条，鲢鱼，草鱼',
+        way: ['路亚', '台钓']
       }, {
         title: '鱼点',
         value: '距离3.2km',
-        label: '挣脱束缚， 向往自由'
+        label: '白条，鲢鱼，草鱼',
+        way: ['海竿']
       }, {
         title: '鱼点',
         value: '距离3.2km',
-        label: '挣脱束缚， 向往自由'
+        label: '白条，鲢鱼，草鱼，小龙虾',
+        way: ['路亚']
       }, {
         title: '鱼点',
         value: '距离3.3km',
-        label: '挣脱束缚， 向往自由'
+        label: '小龙虾，鲫鱼，河虾',
+        way: ['路亚', '台钓']
       }, {
         title: '鱼点',
         value: '距离3.2km',
-        label: '挣脱束缚， 向往自由'
+        label: '鲤鱼，鲫鱼，草鱼',
+        way: ['路亚']
       }, {
         title: '鱼点',
         value: '距离3.3km',
-        label: '挣脱束缚， 向往自由'
+        label: '翘嘴，鲤鱼，鲫鱼，小龙虾',
+        way: ['路亚', '台钓']
       }],
       // 黑坑
       fishSpotData2: [{
         title: '鱼点',
         value: '距离3km',
-        label: '挣脱束缚， 向往自由'
+        label: '翘嘴，白条，鲢鱼，草鱼',
+        way: ['路亚', '台钓']
       }, {
         title: '鱼点',
         value: '距离3.2km',
-        label: '挣脱束缚， 向往自由'
+        label: '小龙虾，鲫鱼，河虾',
+        way: ['海竿']
       }, {
         title: '鱼点',
         value: '距离3.3km',
-        label: '挣脱束缚， 向往自由'
+        label: '翘嘴，鲤鱼，鲫鱼，小龙虾',
+        way: ['路亚', '台钓']
       }, {
         title: '鱼点',
         value: '距离3.2km',
-        label: '挣脱束缚， 向往自由'
+        label: '鲤鱼，鲫鱼，草鱼',
+        way: ['路亚', '台钓']
       }, {
         title: '鱼点',
         value: '距离3.3km',
-        label: '挣脱束缚， 向往自由'
+        label: '翘嘴，鲤鱼，鲫鱼，小龙虾',
+        way: ['路亚', '台钓']
       }],
       // 江边
       fishSpotData3: [{
         title: '鱼点',
         value: '距离3km',
-        label: '挣脱束缚， 向往自由'
+        label: '白条，鲢鱼，草鱼',
+        way: ['路亚', '台钓']
       }, {
         title: '鱼点',
         value: '距离3.3km',
-        label: '挣脱束缚， 向往自由'
+        label: '翘嘴，白条，鲢鱼，草鱼',
+        way: ['海竿']
       }, {
         title: '鱼点',
         value: '距离3.2km',
-        label: '挣脱束缚， 向往自由'
+        label: '鲤鱼，鲫鱼，草鱼',
+        way: ['路亚', '台钓']
       }, {
         title: '鱼点',
         value: '距离3.3km',
-        label: '挣脱束缚， 向往自由'
+        label: '翘嘴，鲤鱼，鲫鱼，小龙虾',
+        way: ['路亚', '台钓']
       }],
       // 判断触底操作是否正在Loading中
       touchBottomLoadMoreBoolean: false,
@@ -651,11 +684,13 @@ var _default = {
           this.fishSpotData1.push({
             title: '野钓鱼点',
             value: '距离3km',
-            label: '挣脱束缚， 向往自由'
+            label: '翘嘴，鲤鱼，鲫鱼，小龙虾',
+            way: ['路亚']
           }, {
             title: '野钓鱼点',
             value: '距离3.2km',
-            label: '挣脱束缚， 向往自由'
+            label: '鲤鱼，鲫鱼，鲢鱼',
+            way: ['路亚', '台钓']
           });
         } else if (this.TabCur == 1) {
           // 模拟请求时间
@@ -665,11 +700,13 @@ var _default = {
           this.fishSpotData2.push({
             title: '黑坑鱼点',
             value: '距离3km',
-            label: '挣脱束缚， 向往自由'
+            label: '鲤鱼，鲫鱼，鲢鱼',
+            way: ['路亚', '台钓']
           }, {
             title: '黑坑鱼点',
             value: '距离3.2km',
-            label: '挣脱束缚， 向往自由'
+            label: '翘嘴，鲤鱼，鲫鱼，小龙虾',
+            way: ['路亚', '台钓']
           });
         } else if (this.TabCur == 2) {
           // 模拟请求时间
@@ -679,11 +716,13 @@ var _default = {
           this.fishSpotData3.push({
             title: '江边鱼点',
             value: '距离3km',
-            label: '挣脱束缚， 向往自由'
+            label: '小龙虾，白条',
+            way: ['台钓']
           }, {
             title: '江边鱼点',
             value: '距离3.2km',
-            label: '挣脱束缚， 向往自由'
+            label: '鲨鱼',
+            way: ['路亚', '台钓', '海竿']
           });
         }
       } else {

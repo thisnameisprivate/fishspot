@@ -74,7 +74,7 @@
 							<text class="text-grey">周边鱼点</text>
 						</view>
 						<view class="action">
-						        <view class="cu-tag round bg-olive light">附近10 km</view>
+						    <view class="cu-tag round bg-olive light">附近10 km</view>
 						</view>
 					</view>
 				</view>
@@ -87,39 +87,57 @@
 				</view>
 				<view class="cu-list menu card-menu margin-top" v-if="TabCur==0">
 					<block v-for="(item, index, key) in fishSpotData1" :key="key">
+						<view class="text-xs text-left padding-sm">
+							<text class="text-gray">{{ item.label }}</text>
+							<block v-for="way in item.way">
+								<view :class="'cu-tag radius sm ' + [way=='路亚'?'bg-red':'', way=='台钓'?'bg-blue':'', way=='海竿'?'bg-pink':'']">{{way}}</view>
+							</block>
+						</view>
 						<view class="cu-item">
 							<view class="content">
 								<text class="cuIcon-github text-blue"></text>
-								<text class="text-grey">{{ item.title }}</text>
+								<text class="text-gray">{{ item.title }}</text>
 							</view>
 							<view class="action">
-							        <view class="cu-tag round bg-olive light">{{ item.value }}</view>
+							    <view class="cu-tag round bg-olive light">{{ item.value }}</view>
 							</view>
 						</view>
 					</block>
 				</view>
 				<view class="cu-list menu card-menu margin-top" v-if="TabCur==1">
 					<block v-for="(item, index, key) in fishSpotData2" :key="key">
+						<view class="text-xs text-left padding-sm">
+							<text class="text-gray">{{ item.label }}</text>
+							<block v-for="way in item.way">
+								<view :class="'cu-tag radius sm ' + [way=='路亚'?'bg-red':'', way=='台钓'?'bg-blue':'', way=='海竿'?'bg-pink':'']">{{way}}</view>
+							</block>
+						</view>
 						<view class="cu-item">
 							<view class="content">
 								<text class="cuIcon-github text-gray"></text>
-								<text class="text-grey">{{ item.title }}</text>
+								<text class="text-gray">{{ item.title }}</text>
 							</view>
 							<view class="action">
-							        <view class="cu-tag round bg-olive light">{{ item.value }}</view>
+							    <view class="cu-tag round bg-olive light">{{ item.value }}</view>
 							</view>
 						</view>
 					</block>
 				</view>
 				<view class="cu-list menu card-menu margin-top" v-if="TabCur==2">
 					<block v-for="(item, index, key) in fishSpotData3" :key="key">
+						<view class="text-xs text-left padding-sm">
+							<text class="text-gray">{{ item.label }}</text>
+							<block v-for="way in item.way">
+								<view :class="'cu-tag radius sm ' + [way=='路亚'?'bg-red':'', way=='台钓'?'bg-blue':'', way=='海竿'?'bg-pink':'']">{{way}}</view>
+							</block>
+						</view>
 						<view class="cu-item">
 							<view class="content">
 								<text class="cuIcon-github text-green"></text>
-								<text class="text-grey">{{ item.title }}</text>
+								<text class="text-gray">{{ item.title }}</text>
 							</view>
 							<view class="action">
-							        <view class="cu-tag round bg-olive light">{{ item.value }}</view>
+							    <view class="cu-tag round bg-olive light">{{ item.value }}</view>
 							</view>
 						</view>
 					</block>
@@ -156,27 +174,27 @@
 				// 鱼点数据
 				// 野钓
 				fishSpotData1: [
-					{ title: '鱼点', value: '距离3km', label: '挣脱束缚， 向往自由'},
-					{ title: '鱼点', value: '距离3.2km', label: '挣脱束缚， 向往自由'},
-					{ title: '鱼点', value: '距离3.2km', label: '挣脱束缚， 向往自由'},
-					{ title: '鱼点', value: '距离3.3km', label: '挣脱束缚， 向往自由'},
-					{ title: '鱼点', value: '距离3.2km', label: '挣脱束缚， 向往自由'},
-					{ title: '鱼点', value: '距离3.3km', label: '挣脱束缚， 向往自由'}
+					{ title: '鱼点', value: '距离3km', label: '翘嘴，白条，鲢鱼，草鱼', way:['路亚', '台钓']},
+					{ title: '鱼点', value: '距离3.2km', label: '白条，鲢鱼，草鱼', way:['海竿']},
+					{ title: '鱼点', value: '距离3.2km', label: '白条，鲢鱼，草鱼，小龙虾', way:['路亚']},
+					{ title: '鱼点', value: '距离3.3km', label: '小龙虾，鲫鱼，河虾', way:['路亚', '台钓']},
+					{ title: '鱼点', value: '距离3.2km', label: '鲤鱼，鲫鱼，草鱼', way:['路亚']},
+					{ title: '鱼点', value: '距离3.3km', label: '翘嘴，鲤鱼，鲫鱼，小龙虾', way:['路亚', '台钓']}
 				],
 				// 黑坑
 				fishSpotData2: [
-					{ title: '鱼点', value: '距离3km', label: '挣脱束缚， 向往自由'},
-					{ title: '鱼点', value: '距离3.2km', label: '挣脱束缚， 向往自由'},
-					{ title: '鱼点', value: '距离3.3km', label: '挣脱束缚， 向往自由'},
-					{ title: '鱼点', value: '距离3.2km', label: '挣脱束缚， 向往自由'},
-					{ title: '鱼点', value: '距离3.3km', label: '挣脱束缚， 向往自由'}
+					{ title: '鱼点', value: '距离3km', label: '翘嘴，白条，鲢鱼，草鱼', way:['路亚', '台钓']},
+					{ title: '鱼点', value: '距离3.2km', label: '小龙虾，鲫鱼，河虾', way:['海竿']},
+					{ title: '鱼点', value: '距离3.3km', label: '翘嘴，鲤鱼，鲫鱼，小龙虾', way:['路亚', '台钓']},
+					{ title: '鱼点', value: '距离3.2km', label: '鲤鱼，鲫鱼，草鱼', way:['路亚', '台钓']},
+					{ title: '鱼点', value: '距离3.3km', label: '翘嘴，鲤鱼，鲫鱼，小龙虾', way:['路亚', '台钓']}
 				],
 				// 江边
 				fishSpotData3: [
-					{ title: '鱼点', value: '距离3km', label: '挣脱束缚， 向往自由'},
-					{ title: '鱼点', value: '距离3.3km', label: '挣脱束缚， 向往自由'},
-					{ title: '鱼点', value: '距离3.2km', label: '挣脱束缚， 向往自由'},
-					{ title: '鱼点', value: '距离3.3km', label: '挣脱束缚， 向往自由'}
+					{ title: '鱼点', value: '距离3km', label: '白条，鲢鱼，草鱼', way:['路亚', '台钓']},
+					{ title: '鱼点', value: '距离3.3km', label: '翘嘴，白条，鲢鱼，草鱼', way:['海竿']},
+					{ title: '鱼点', value: '距离3.2km', label: '鲤鱼，鲫鱼，草鱼', way:['路亚', '台钓']},
+					{ title: '鱼点', value: '距离3.3km', label: '翘嘴，鲤鱼，鲫鱼，小龙虾', way:['路亚', '台钓']}
 				],
 				// 判断触底操作是否正在Loading中
 				touchBottomLoadMoreBoolean: false,
@@ -211,8 +229,8 @@
 							that.loadStatus = false
 						},1000)
 						this.fishSpotData1.push(
-							{ title: '野钓鱼点', value: '距离3km', label: '挣脱束缚， 向往自由'},
-							{ title: '野钓鱼点', value: '距离3.2km', label: '挣脱束缚， 向往自由'}
+							{ title: '野钓鱼点', value: '距离3km', label: '翘嘴，鲤鱼，鲫鱼，小龙虾', way:['路亚']},
+							{ title: '野钓鱼点', value: '距离3.2km', label: '鲤鱼，鲫鱼，鲢鱼', way:['路亚', '台钓']}
 						)
 					} else if (this.TabCur == 1) {
 						// 模拟请求时间
@@ -220,8 +238,8 @@
 							that.loadStatus = false
 						},1000)
 						this.fishSpotData2.push(
-							{ title: '黑坑鱼点', value: '距离3km', label: '挣脱束缚， 向往自由'},
-							{ title: '黑坑鱼点', value: '距离3.2km', label: '挣脱束缚， 向往自由'}
+							{ title: '黑坑鱼点', value: '距离3km', label: '鲤鱼，鲫鱼，鲢鱼', way:['路亚', '台钓']},
+							{ title: '黑坑鱼点', value: '距离3.2km', label: '翘嘴，鲤鱼，鲫鱼，小龙虾', way:['路亚', '台钓']}
 						)
 					} else if (this.TabCur == 2) {
 						// 模拟请求时间
@@ -229,8 +247,8 @@
 							that.loadStatus = false
 						},1000)
 						this.fishSpotData3.push(
-							{ title: '江边鱼点', value: '距离3km', label: '挣脱束缚， 向往自由'},
-							{ title: '江边鱼点', value: '距离3.2km', label: '挣脱束缚， 向往自由'}
+							{ title: '江边鱼点', value: '距离3km', label: '小龙虾，白条', way:['台钓']},
+							{ title: '江边鱼点', value: '距离3.2km', label: '鲨鱼', way:['路亚', '台钓', '海竿']}
 						)
 					}
 				} else {
