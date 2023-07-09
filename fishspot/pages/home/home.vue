@@ -32,7 +32,7 @@
 					<view class="button-list-item">
 						<view class="button-list-item-current">
 							<view class="padding-sm">
-							   <button class="cu-btn-private-style cu-btn round bg-gradual-blue radius text-center shadow-blur shadow lg" @click="navDamicPublishing">
+							   <button class="cu-btn-private-style cu-btn round bg-gradual-blue radius text-center shadow-blur shadow lg" @click="navSearchFish">
 								   <text class="cuIcon-search text-olive padding-sm"></text>
 							       <text class="text-sm">鱼点搜索</text> 
 							   </button>
@@ -40,7 +40,7 @@
 						</view>
 						<view class="button-list-item-current">
 							<view class="padding-sm">
-							    <button class="cu-btn-private-style cu-btn round bg-gradual-blue radius text-center shadow-blur shadow lg" @click="navDamicPublishing">
+							    <button class="cu-btn-private-style cu-btn round bg-gradual-blue radius text-center shadow-blur shadow lg" @click="mapNavTo">
 									<text class="cuIcon-location text-olive padding-sm"></text>
 							        <text class="text-sm">一键导航</text> 
 							    </button>
@@ -50,7 +50,7 @@
 					<view class="button-list-item">
 						<view class="button-list-item-current">
 							<view class="padding-sm">
-							    <button class="cu-btn-private-style cu-btn round bg-gradual-blue radius text-center shadow-blur shadow lg" @click="navDamicPublishing">
+							    <button class="cu-btn-private-style cu-btn round bg-gradual-blue radius text-center shadow-blur shadow lg" @click="navTimeLine">
 									<text class="cuIcon-footprint text-olive padding-sm"></text>
 							        <text class="text-sm">最近去过</text>
 							    </button>
@@ -203,6 +203,33 @@
 			}
 		},
 		methods: {
+			// 鱼点搜索按钮
+			navSearchFish: function () {
+				uni.navigateTo({
+					url: '/pages/searchFish/searchFish'
+				})
+			},
+			// 最近去过按钮
+			navTimeLine: function () {
+				uni.navigateTo({
+					url: '/pages/timeLine/timeLine'
+				})
+			},
+			// 打开腾讯地图导航路线控件
+			mapNavTo: function () {
+				let plugin = requirePlugin('routePlan');
+				let key = '2FDBZ-TWB3L-34NPH-EFEND-6Q7MS-AJBFD';  //使用在腾讯位置服务申请的key
+				let referer = '鱼点通';   //调用插件的app的名称
+				let endPoint = JSON.stringify({  //终点
+				    'name': '柯某人的专用钓台',
+				    'latitude': 32.47669,
+				    'longitude': 105.847777
+				});
+				let navigation = 1; // navigation为1时开起驾车导航功能，默认不开启
+				wx.navigateTo({
+				    url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint + '&navigation=' + navigation
+				});
+			},
 			// tabs切换
 			tabSelect: function (key) {
 				this.TabCur = key

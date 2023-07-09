@@ -60,6 +60,34 @@
             }
             
         }
+        ,{
+            "path" : "pages/searchFish/searchFish",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+				// "navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/timeLine/timeLine",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/map/map",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -89,5 +117,16 @@
 				"pagePath": "pages/user/index"
 			}
 		]
+	},
+	"plugins": {
+	        "routePlan": {
+				"version": "1.0.18",
+				"provider": "wx50b5593e81dd937a"
+	        }
+	},
+	"permission": {
+	        "scope.userLocation": {
+	        "desc": "你的位置信息将用于小程序定位"
+	        }
 	}
 }

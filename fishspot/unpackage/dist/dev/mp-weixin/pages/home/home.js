@@ -80,7 +80,7 @@ var components
 try {
   components = {
     uIcon: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 238))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 256))
     },
   }
 } catch (e) {
@@ -318,16 +318,16 @@ var components
 try {
   components = {
     uLoadingPage: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-loading-page/u-loading-page */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-loading-page/u-loading-page")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-loading-page/u-loading-page.vue */ 247))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-loading-page/u-loading-page */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-loading-page/u-loading-page")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-loading-page/u-loading-page.vue */ 265))
     },
     navbar: function () {
       return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! @/components/navbar/navbar.vue */ 165))
     },
     "u-Image": function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u--image/u--image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u--image/u--image")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u--image/u--image.vue */ 255))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u--image/u--image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u--image/u--image")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u--image/u--image.vue */ 273))
     },
     uLoadingIcon: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-loading-icon/u-loading-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-loading-icon/u-loading-icon")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-loading-icon/u-loading-icon.vue */ 261))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-loading-icon/u-loading-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-loading-icon/u-loading-icon")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-loading-icon/u-loading-icon.vue */ 279))
     },
     tabbars: function () {
       return __webpack_require__.e(/*! import() | components/tabbars/tabbars */ "components/tabbars/tabbars").then(__webpack_require__.bind(null, /*! @/components/tabbars/tabbars.vue */ 158))
@@ -387,7 +387,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(uni, wx) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -656,6 +656,34 @@ var _default = {
     };
   },
   methods: {
+    // 鱼点搜索按钮
+    navSearchFish: function navSearchFish() {
+      uni.navigateTo({
+        url: '/pages/searchFish/searchFish'
+      });
+    },
+    // 最近去过按钮
+    navTimeLine: function navTimeLine() {
+      uni.navigateTo({
+        url: '/pages/timeLine/timeLine'
+      });
+    },
+    // 打开腾讯地图导航路线控件
+    mapNavTo: function mapNavTo() {
+      var plugin = requirePlugin('routePlan');
+      var key = '2FDBZ-TWB3L-34NPH-EFEND-6Q7MS-AJBFD'; //使用在腾讯位置服务申请的key
+      var referer = '鱼点通'; //调用插件的app的名称
+      var endPoint = JSON.stringify({
+        //终点
+        'name': '柯某人的专用钓台',
+        'latitude': 32.47669,
+        'longitude': 105.847777
+      });
+      var navigation = 1; // navigation为1时开起驾车导航功能，默认不开启
+      wx.navigateTo({
+        url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint + '&navigation=' + navigation
+      });
+    },
     // tabs切换
     tabSelect: function tabSelect(key) {
       this.TabCur = key;
@@ -742,6 +770,7 @@ var _default = {
   }
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
 
 /***/ }),
 

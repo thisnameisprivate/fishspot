@@ -115,10 +115,10 @@ var components
 try {
   components = {
     uTabbar: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabbar/u-tabbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabbar/u-tabbar")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabbar/u-tabbar.vue */ 222))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabbar/u-tabbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabbar/u-tabbar")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabbar/u-tabbar.vue */ 240))
     },
     uTabbarItem: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabbar-item/u-tabbar-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabbar-item/u-tabbar-item")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabbar-item/u-tabbar-item.vue */ 230))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabbar-item/u-tabbar-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabbar-item/u-tabbar-item")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabbar-item/u-tabbar-item.vue */ 248))
     },
   }
 } catch (e) {
@@ -379,7 +379,7 @@ var components
 try {
   components = {
     uIcon: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 238))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 256))
     },
   }
 } catch (e) {

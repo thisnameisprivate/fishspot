@@ -1556,7 +1556,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"fishspot","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"fishspot","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -8913,7 +8913,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"fishspot","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"fishspot","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8934,14 +8934,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"fishspot","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"fishspot","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"fishspot","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"fishspot","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9037,7 +9037,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"fishspot","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"fishspot","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -19271,7 +19271,25 @@ function CommGetLocation() {
 /* 224 */,
 /* 225 */,
 /* 226 */,
-/* 227 */
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */
 /*!******************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-tabbar/props.js ***!
   \******************************************************************************************/
@@ -19333,14 +19351,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 228 */,
-/* 229 */,
-/* 230 */,
-/* 231 */,
-/* 232 */,
-/* 233 */,
-/* 234 */,
-/* 235 */
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */
 /*!***********************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-tabbar-item/props.js ***!
   \***********************************************************************************************/
@@ -19392,14 +19410,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 236 */,
-/* 237 */,
-/* 238 */,
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */
 /*!****************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-icon/icons.js ***!
   \****************************************************************************************/
@@ -19630,7 +19648,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 244 */
+/* 262 */
 /*!****************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-icon/props.js ***!
   \****************************************************************************************/
@@ -19737,14 +19755,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */,
+/* 268 */,
+/* 269 */,
+/* 270 */
 /*!************************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-loading-page/props.js ***!
   \************************************************************************************************/
@@ -19806,14 +19824,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */,
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */
 /*!*****************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-image/props.js ***!
   \*****************************************************************************************/
@@ -19915,12 +19933,12 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */
+/* 279 */,
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */
 /*!************************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-loading-icon/props.js ***!
   \************************************************************************************************/
@@ -19997,14 +20015,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */,
-/* 272 */,
-/* 273 */,
-/* 274 */
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */
 /*!**********************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/libs/mixin/button.js ***!
   \**********************************************************************************/
@@ -20034,7 +20052,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 275 */
+/* 293 */
 /*!************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/libs/mixin/openType.js ***!
   \************************************************************************************/
@@ -20076,7 +20094,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 276 */
+/* 294 */
 /*!******************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-button/props.js ***!
   \******************************************************************************************/
@@ -20255,14 +20273,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 277 */,
-/* 278 */,
-/* 279 */,
-/* 280 */,
-/* 281 */,
-/* 282 */,
-/* 283 */,
-/* 284 */
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */,
+/* 300 */,
+/* 301 */,
+/* 302 */
 /*!**********************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-cell-group/props.js ***!
   \**********************************************************************************************/
@@ -20294,14 +20312,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 285 */,
-/* 286 */,
-/* 287 */,
-/* 288 */,
-/* 289 */,
-/* 290 */,
-/* 291 */,
-/* 292 */
+/* 303 */,
+/* 304 */,
+/* 305 */,
+/* 306 */,
+/* 307 */,
+/* 308 */,
+/* 309 */,
+/* 310 */
 /*!****************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-cell/props.js ***!
   \****************************************************************************************/
@@ -20429,14 +20447,14 @@ exports.default = _default2;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 293 */,
-/* 294 */,
-/* 295 */,
-/* 296 */,
-/* 297 */,
-/* 298 */,
-/* 299 */,
-/* 300 */
+/* 311 */,
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */,
+/* 318 */
 /*!****************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-tabs/props.js ***!
   \****************************************************************************************/
@@ -20518,14 +20536,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 301 */,
-/* 302 */,
-/* 303 */,
-/* 304 */,
-/* 305 */,
-/* 306 */,
-/* 307 */,
-/* 308 */
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */
 /*!******************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-notify/props.js ***!
   \******************************************************************************************/
@@ -20592,14 +20610,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 309 */,
-/* 310 */,
-/* 311 */,
-/* 312 */,
-/* 313 */,
-/* 314 */,
-/* 315 */,
-/* 316 */
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */
 /*!****************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-text/props.js ***!
   \****************************************************************************************/
@@ -20727,12 +20745,12 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 317 */,
-/* 318 */,
-/* 319 */,
-/* 320 */,
-/* 321 */,
-/* 322 */
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */
 /*!*****************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-album/props.js ***!
   \*****************************************************************************************/
@@ -20809,21 +20827,21 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 323 */,
-/* 324 */,
-/* 325 */,
-/* 326 */,
-/* 327 */,
-/* 328 */,
-/* 329 */,
-/* 330 */,
-/* 331 */,
-/* 332 */,
-/* 333 */,
-/* 334 */,
-/* 335 */,
-/* 336 */,
-/* 337 */
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */,
+/* 348 */,
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */
 /*!***********************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-safe-bottom/props.js ***!
   \***********************************************************************************************/
@@ -20843,14 +20861,14 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 338 */,
-/* 339 */,
-/* 340 */,
-/* 341 */,
-/* 342 */,
-/* 343 */,
-/* 344 */,
-/* 345 */
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */,
+/* 363 */
 /*!*****************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-badge/props.js ***!
   \*****************************************************************************************/
@@ -20940,14 +20958,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 346 */,
-/* 347 */,
-/* 348 */,
-/* 349 */,
-/* 350 */,
-/* 351 */,
-/* 352 */,
-/* 353 */
+/* 364 */,
+/* 365 */,
+/* 366 */,
+/* 367 */,
+/* 368 */,
+/* 369 */,
+/* 370 */,
+/* 371 */
 /*!**********************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-transition/props.js ***!
   \**********************************************************************************************/
@@ -20989,7 +21007,7 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 354 */
+/* 372 */
 /*!***************************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-transition/transition.js ***!
   \***************************************************************************************************/
@@ -21006,7 +21024,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 55));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 57));
-var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 355));
+var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 373));
 // 定义一个一定时间后自动成功的promise，让调用nextTick方法处，进入下一个then方法
 var nextTick = function nextTick() {
   return new Promise(function (resolve) {
@@ -21098,7 +21116,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 355 */
+/* 373 */
 /*!*****************************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-transition/nvue.ani-map.js ***!
   \*****************************************************************************************************/
@@ -21291,21 +21309,21 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 356 */,
-/* 357 */,
-/* 358 */,
-/* 359 */,
-/* 360 */,
-/* 361 */,
-/* 362 */,
-/* 363 */,
-/* 364 */,
-/* 365 */,
-/* 366 */,
-/* 367 */,
-/* 368 */,
-/* 369 */,
-/* 370 */
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */,
+/* 378 */,
+/* 379 */,
+/* 380 */,
+/* 381 */,
+/* 382 */,
+/* 383 */,
+/* 384 */,
+/* 385 */,
+/* 386 */,
+/* 387 */,
+/* 388 */
 /*!****************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-line/props.js ***!
   \****************************************************************************************/
@@ -21356,14 +21374,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 371 */,
-/* 372 */,
-/* 373 */,
-/* 374 */,
-/* 375 */,
-/* 376 */,
-/* 377 */,
-/* 378 */
+/* 389 */,
+/* 390 */,
+/* 391 */,
+/* 392 */,
+/* 393 */,
+/* 394 */,
+/* 395 */,
+/* 396 */
 /*!**********************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-status-bar/props.js ***!
   \**********************************************************************************************/
@@ -21389,14 +21407,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 379 */,
-/* 380 */,
-/* 381 */,
-/* 382 */,
-/* 383 */,
-/* 384 */,
-/* 385 */,
-/* 386 */
+/* 397 */,
+/* 398 */,
+/* 399 */,
+/* 400 */,
+/* 401 */,
+/* 402 */,
+/* 403 */,
+/* 404 */
 /*!****************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-text/value.js ***!
   \****************************************************************************************/
@@ -21504,14 +21522,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 387 */,
-/* 388 */,
-/* 389 */,
-/* 390 */,
-/* 391 */,
-/* 392 */,
-/* 393 */,
-/* 394 */
+/* 405 */,
+/* 406 */,
+/* 407 */,
+/* 408 */,
+/* 409 */,
+/* 410 */,
+/* 411 */,
+/* 412 */
 /*!*******************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-overlay/props.js ***!
   \*******************************************************************************************/
@@ -21553,14 +21571,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 395 */,
-/* 396 */,
-/* 397 */,
-/* 398 */,
-/* 399 */,
-/* 400 */,
-/* 401 */,
-/* 402 */
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */,
+/* 419 */,
+/* 420 */
 /*!***************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-gap/props.js ***!
   \***************************************************************************************/
@@ -21602,14 +21620,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 403 */,
-/* 404 */,
-/* 405 */,
-/* 406 */,
-/* 407 */,
-/* 408 */,
-/* 409 */,
-/* 410 */
+/* 421 */,
+/* 422 */,
+/* 423 */,
+/* 424 */,
+/* 425 */,
+/* 426 */,
+/* 427 */,
+/* 428 */
 /*!****************************************************************************************!*\
   !*** D:/wechatcode/fishspot/fishspot/node_modules/uview-ui/components/u-link/props.js ***!
   \****************************************************************************************/

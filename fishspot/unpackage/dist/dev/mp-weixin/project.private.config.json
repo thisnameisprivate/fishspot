@@ -27,6 +27,13 @@
 					"query": "",
 					"launchMode": "default",
 					"scene": null
+				},
+				{
+					"name": "",
+					"pathName": "pages/searchFish/searchFish",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
 				}
 			]
 		}

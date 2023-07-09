@@ -5,7 +5,10 @@
     "pages/forum/index",
     "pages/user/index",
     "components/navbar/navbar",
-    "pages/DamicPublishing/DamicPublishing"
+    "pages/DamicPublishing/DamicPublishing",
+    "pages/searchFish/searchFish",
+    "pages/timeLine/timeLine",
+    "pages/map/map"
   ],
   "subPackages": [],
   "window": {
@@ -30,6 +33,12 @@
         "pagePath": "pages/user/index"
       }
     ]
+  },
+  "plugins": {
+    "routePlan": {
+      "version": "1.0.18",
+      "provider": "wx50b5593e81dd937a"
+    }
   },
   "permission": {
     "scope.userLocation": {
