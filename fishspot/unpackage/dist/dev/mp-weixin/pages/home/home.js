@@ -573,81 +573,96 @@ var _default = {
         title: '鱼点',
         value: '距离3km',
         label: '翘嘴，白条，鲢鱼，草鱼',
-        way: ['路亚', '台钓']
+        way: ['路亚', '台钓'],
+        id: 1
       }, {
         title: '鱼点',
         value: '距离3.2km',
         label: '白条，鲢鱼，草鱼',
-        way: ['海竿']
+        way: ['海竿'],
+        id: 2
       }, {
         title: '鱼点',
         value: '距离3.2km',
         label: '白条，鲢鱼，草鱼，小龙虾',
-        way: ['路亚']
+        way: ['路亚'],
+        id: 3
       }, {
         title: '鱼点',
         value: '距离3.3km',
         label: '小龙虾，鲫鱼，河虾',
-        way: ['路亚', '台钓']
+        way: ['路亚', '台钓'],
+        id: 4
       }, {
         title: '鱼点',
         value: '距离3.2km',
         label: '鲤鱼，鲫鱼，草鱼',
-        way: ['路亚']
+        way: ['路亚'],
+        id: 5
       }, {
         title: '鱼点',
         value: '距离3.3km',
         label: '翘嘴，鲤鱼，鲫鱼，小龙虾',
-        way: ['路亚', '台钓']
+        way: ['路亚', '台钓'],
+        id: 6
       }],
       // 黑坑
       fishSpotData2: [{
         title: '鱼点',
         value: '距离3km',
         label: '翘嘴，白条，鲢鱼，草鱼',
-        way: ['路亚', '台钓']
+        way: ['路亚', '台钓'],
+        id: 1
       }, {
         title: '鱼点',
         value: '距离3.2km',
         label: '小龙虾，鲫鱼，河虾',
-        way: ['海竿']
+        way: ['海竿'],
+        id: 2
       }, {
         title: '鱼点',
         value: '距离3.3km',
         label: '翘嘴，鲤鱼，鲫鱼，小龙虾',
-        way: ['路亚', '台钓']
+        way: ['路亚', '台钓'],
+        id: 3
       }, {
         title: '鱼点',
         value: '距离3.2km',
         label: '鲤鱼，鲫鱼，草鱼',
-        way: ['路亚', '台钓']
+        way: ['路亚', '台钓'],
+        id: 4
       }, {
         title: '鱼点',
         value: '距离3.3km',
         label: '翘嘴，鲤鱼，鲫鱼，小龙虾',
-        way: ['路亚', '台钓']
+        way: ['路亚', '台钓'],
+        id: 5
       }],
       // 江边
       fishSpotData3: [{
         title: '鱼点',
         value: '距离3km',
         label: '白条，鲢鱼，草鱼',
-        way: ['路亚', '台钓']
+        way: ['路亚', '台钓'],
+        id: 1
       }, {
         title: '鱼点',
         value: '距离3.3km',
         label: '翘嘴，白条，鲢鱼，草鱼',
-        way: ['海竿']
+        way: ['海竿'],
+        id: 2
       }, {
         title: '鱼点',
         value: '距离3.2km',
         label: '鲤鱼，鲫鱼，草鱼',
-        way: ['路亚', '台钓']
+        way: ['路亚', '台钓'],
+        id: 3
       }, {
         title: '鱼点',
         value: '距离3.3km',
         label: '翘嘴，鲤鱼，鲫鱼，小龙虾',
-        way: ['路亚', '台钓']
+        way: ['路亚', '台钓'],
+        id: 4
       }],
       // 判断触底操作是否正在Loading中
       touchBottomLoadMoreBoolean: false,
@@ -688,6 +703,18 @@ var _default = {
     tabSelect: function tabSelect(key) {
       this.TabCur = key;
       this.scrollLeft = key - 1 * 60;
+    },
+    /**
+     * 鱼点点击携带参数跳转到鱼点详情页面
+     * @param {Object} event
+     * @param event.currentTarget.dataset.id 当前点击的鱼点id
+     * @param event.currentTarget.dataset.fishtype 当前点击的鱼点类型[野钓1，黑坑2，江边3]
+     * return NULL
+     */
+    cardMenu: function cardMenu(event) {
+      console.log(event.currentTarget.dataset.fishname);
+      // 这里是传送了一个事件{Object}过来-动态传参无法直接通过item.id传过来；所以传事件
+      console.log("点击了第", event.currentTarget.dataset.fishtype, "页的第", event.currentTarget.dataset.id, "鱼点-");
     },
     /**
      * 界面上拉手势触底新增鱼点数据
